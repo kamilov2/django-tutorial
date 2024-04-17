@@ -1,5 +1,23 @@
-{% extends "blog/index.html" %}
+{% include "css_styles.html" %}
 
-{% block page_title %}
+<main>
+    <div class="container">
+        {% block page_title %}
 <h2>{{ category }}</h2>
 {% endblock page_title %}
+<div class="container">
+    <h2>Blog Posts</h2>
+    {% for post in posts %}
+    <ul>
+    <li>
+      <a href="{% url 'blog:blog_detail' post.id %}">
+        <h4>{{post.title}}</h4>
+      </a>
+    </li>
+    <li>{{category}}</li>
+    <li>{{post.body}}</li>
+    </ul>
+    {% endfor %}
+</div>
+    </div>
+</main>

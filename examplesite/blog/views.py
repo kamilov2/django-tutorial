@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
-from django.contrib import messages
-from django.urls import reverse
+from django.contrib import messages # type: ignore
+from django.urls import reverse # type: ignore
 from blog.models import Post, Comment
 
 from .utils import check_reaction
+from .forms import SetCommentForm
 
 
 def blog_index(request):
@@ -16,7 +18,7 @@ def blog_index(request):
 
 def blog_category(request, category):
     posts = Post.objects.filter(
-        categories__name__contains=category
+        categories__name__icontains=category
     ).order_by("-created_on")
     context = {
         "category": category,
@@ -25,11 +27,25 @@ def blog_category(request, category):
     return render(request, "blog/category.html", context)
 
 def blog_detail(request, pk):
+    form = SetCommentForm()
     post = Post.objects.get(pk=pk)
     comments = Comment.objects.filter(post=post)
+    if request.method == "POST":
+        form = SetCommentForm(request.POST)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.author = request.user.username
+            f.post = post
+            f.save()
+            print("OK")
+            return HttpResponseRedirect(request.META['HTTP_REFERER'])
+        else:
+            print("ERROR")
+            return HttpResponseRedirect(request.META['HTTP_REFERER'])
     context = {
         "post": post,
         "comments": comments,
+        "form":form
     }
 
     return render(request, "blog/detail.html", context)

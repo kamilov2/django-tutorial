@@ -28,6 +28,30 @@
             <li><a href="{% url 'blog:set_reaction' post.id 'like' %}">Like = {{post.likes}}</a></li>
             <li><a href="{% url 'blog:set_reaction' post.id 'dislike' %}">Dislike = {{post.dislikes}}</a></li>
         </ul>
+        <br>
+        <div class="grid">
+            <div>
+                <b>{{post.comment.count}}</b>
+                {% for comment in comments %}
+                <p><b>{{comment.author}} : </b>{{comment.body}}</p>
+                {% endfor %}
+            </div>
+            <div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <input type="submit" value="Comment">
+                </form>
+            </div>
+
+          </div>
+    
     </div>
+    <style>
+        .comment_text{
+            background-color: rgb(34, 36, 36);
+            color: aliceblue;
+        }
+    </style>
 </main>
 {% endblock page_content %}
