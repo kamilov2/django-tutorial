@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark"/>
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+    <title>Player</title>
+</head>
+<body>
+    <main class="container">
+        <section class="main-data">
+            <h1>
+                <img src="{{object.image.url}}" width="100" alt="">
+                {{object.name}}
+            </h1>
+            <h4>Davlati - {{object.country}}</h4>
+            <h3>Yoshi - {{object.get_age}}</h3>
+            <h3>Positsiyasi - 
+                {% if object.position == 'gk' %}
+                Darvozabon
+                {% elif object.position == 'df' %}
+                Himoyachi
+                {% elif object.position == 'md' %}
+                Yarim himoyachi
+                {% elif object.position == 'fw' %}
+                Hujumkor himoyachi
+                {% elif object.position == 'st' %}
+                Hujumchi
+                {% endif %}
+            </h3>
+            <h3>Bo'yi - {{object.height}}</h3>
+            <h3>Vazni - {{object.weight}}</h3>
+            <h3>Klubi - {{object.club}}</h3>
+            <table border="1">
+                {% for club in clubs %}
+                <tr>
+                    <td>
+                        <a href="{% url 'main:club_detail' club.id %}">
+                            <img src="{{club.logo.url}}" width="100" alt="">
+                            {{club.name}}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </main>
+</body>
+</html>

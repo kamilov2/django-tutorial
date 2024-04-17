@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark"/>
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+    <title>Leaguages</title>
+</head>
+<body>
+    <main class="container">
+        <section class="main-data">
+            <h4>
+                <img src="{{object.logo.url}}" width="100" alt="">
+                {{object.name}}
+            </h4>
+            <h5>
+                {{object.country}}
+            </h5>
+            <table border="1">
+                {% for club in clubs %}
+                <tr>
+                    <td>
+                        <a href="{% url 'main:club_detail' club.id %}">
+                            <img src="{{club.logo.url}}" width="100" alt="">
+                            {{club.name}}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </main>
+</body>
+</html>

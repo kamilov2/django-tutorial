@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+
+    <title>Profile</title>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <ul style="display: flex; gap:25px; list-style:none;" >
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'users:logout' %}" class="link">Logout</a></li>
+                <li><a href="{% url 'users:password_change' %}" class="link">Password change</a></li>
+                <li><a href="{% url 'users:profile_update' request.user.profile.id  %}">Edit</a></li>
+                {% else %}
+                <li><a href="{% url 'users:login' %}" class="link">Login</a></li>
+                <li><a href="{% url 'users:register' %}" class="link">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+        <main class="container">
+        <h3>Profile - 
+            {% if request.user.first_name %} 
+                <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.first_name}} </a>
+                <a href="{% url 'users:profile' request.user.profile.id %}">Edit</a>
+            {% else %} 
+            <a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.username}}</a>
+            {% endif %}
+            
+        </h3>
+        {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <ul>
+            <li>
+                {% if user.profile.image %}
+                <img src="{{user.profile.image.url}}" width="100" alt="">
+                {% endif %}
+            </li>
+            <li><p><b>Bio</b>{{user.profile.bio}}</p></li>
+            <li><p><b>Country</b>{{user.profile.country.name}}</p></li>
+            <li><p><b>Date of Birthday</b>{{user.profile.date_of_birth}}</p></li>
+        </ul>
+        <ul>
+            {% for post in user.posts.all %}
+            <li>
+                <ul>
+                    <li>{{post.title}}</li>
+                    <li>{{post.categories}}</li>
+                    <li>{{post.body}}</li>
+                    <li>
+                        <a href="{% url 'blog:blog_delete' post.id %}">Delete</a>
+                        <a href="{% url 'blog:blog_edit' post.id %}">Edit</a>
+                    </li>
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+
+    <title>Profile update  form</title>
+</head>
+<body>
+    <br><br>
+    <main class="container">
+        <div class="row">
+            <div class="column">
+                <h4>Profile update  form</h4>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form}}
+                    <br>
+                    <br>
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+            <div class="column"></div>
+          </div>
+
+    </main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <!--<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+  /> -->
+  <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+    <title>Hello world!</title>
+  </head>
+
+  <body>
+    <br><br>
+    <header>
+      <nav class="container">
+          <ul style="display: flex; gap:25px; list-style:none;" >
+              {% if request.user.is_authenticated %}
+              <li><a href="{% url 'users:profile' request.user.profile.id %}">{{request.user.username}}</a></li>
+              <li><a href="{% url 'users:logout' %}" class="link">Logout</a></li>
+              <li><a href="{% url 'users:password_change' %}" class="link">Password change</a></li>
+              <li><a href="{% url 'blog:blog_add' %}" class="link">Add a blog</a></li>
+              
+              {% else %}
+              <li><a href="{% url 'users:login' %}" class="link">Login</a></li>
+              <li><a href="{% url 'users:register' %}" class="link">Register</a></li>
+              {% endif %}
+          </ul>
+      </nav>
+    </header>
+    <br>
+    <br>
+    <main class="container">   
+          <h2>Blog Posts</h2>
+          {% for post in posts %}
+          <ul>
+          <li>
+            <a href="{% url 'blog:blog_detail' post.id %}">
+              <h4>{{post.title}}</h4>
+            </a>
+          </li>
+          <li>{{post.categories}}</li>
+          <li>{{post.body}}</li>
+          </ul>
+          {% endfor %}
+    </main>
+  </body>
+</html>

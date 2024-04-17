@@ -1,0 +1,33 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+{% block page_content %}
+<main>
+    <div class="container">
+        {% block page_title %}
+    <h2>{{ post.title }}</h2>
+{% endblock page_title %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <small>
+            {{ post.created_on.date }} | Categories:
+            {% for category in post.categories.all %}
+                <a href="{% url 'blog:blog_category' category.name %}">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </small>
+        <p>{{ post.body }}</p>
+        <br>
+        <ul>
+            <li><a href="{% url 'blog:set_reaction' post.id 'like' %}">Like = {{post.likes}}</a></li>
+            <li><a href="{% url 'blog:set_reaction' post.id 'dislike' %}">Dislike = {{post.dislikes}}</a></li>
+        </ul>
+    </div>
+</main>
+{% endblock page_content %}
