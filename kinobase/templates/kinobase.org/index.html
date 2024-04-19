@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="application-name" content="Кинобейс" />
+    <title>Кинобейс</title>
+    <meta
+      name="keywords"
+      content="Кинобейс, kinobase, смотреть фильмы онлайн, фильмы онлайн в хорошем качестве, кино смотреть онлайн, смотреть сериалы онлайн, сериалы онлайн в хорошем качестве, смотреть фильмы бесплатно, онлайн-кинотеатр"
+    />
+    <meta
+      name="description"
+      content="Смотрите бесплатно на сайте кинобейс - фильмы, сериалы и телепередачи в хорошем качестве"
+    />
+
+    {% include 'components/styles_css.html' %}
+  </head>
+  <body class="dark">
+
+
+
+    <script type="text/javascript">
+      window.addEventListener("DOMContentLoaded", function () {
+        $.ajax({
+          dataType: "json",
+          url: "/user_data",
+          data: { page: "index" },
+          success: function (data) {
+            $("body").prepend(data.branding);
+            $("#footer").append(data.sticker);
+          },
+        });
+      });
+    </script>
+
+    <div id="root" class="dark">
+
+    {% include 'components/header.html' %}
+
+      <div id="main">
+        <div class="container">
+          <div id="index_page">
+            <h2><a href="filmsa692.html?sort=viewed_week">Популярные</a></h2>
+            <ul class="items">
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227331-padenie-imperii.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/5b576314a37b19a2456d.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Падение империи (2024)"
+                      title="Падение империи (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227331"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227331-padenie-imperii.html"
+                    alt="Падение империи (2024)"
+                    title="Падение империи (2024)"
+                    >Падение империи</a
+                  >
+                </div>
+                <span class="rating">6.8</span
+                ><span class="year">2024, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227165-omen-pervoe-znamenie.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/5905b4b414948f78da72.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Омен. Первое знамение (2024)"
+                      title="Омен. Первое знамение (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227165"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227165-omen-pervoe-znamenie.html"
+                    alt="Омен. Первое знамение (2024)"
+                    title="Омен. Первое знамение (2024)"
+                    >Омен. Первое знамение</a
+                  >
+                </div>
+                <span class="rating">7.3</span
+                ><span class="year">2024, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226990-dyshi.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/9bfda38fec6fffb03651.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Дыши! (2024)"
+                      title="Дыши! (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226990"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226990-dyshi.html"
+                    alt="Дыши! (2024)"
+                    title="Дыши! (2024)"
+                    >Дыши!</a
+                  >
+                </div>
+                <span class="rating">6.7</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226638-spyaschie-psy.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/d096ae688fab6d2785b8.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Спящие псы (2024)"
+                      title="Спящие псы (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226638"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226638-spyaschie-psy.html"
+                    alt="Спящие псы (2024)"
+                    title="Спящие псы (2024)"
+                    >Спящие псы</a
+                  >
+                </div>
+                <span class="rating">7.4</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/225298-godzilla-i-kong-novaya-imperiya.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/005996b6e69691de2940.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Годзилла и Конг: Новая империя (2024)"
+                      title="Годзилла и Конг: Новая империя (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="225298"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/225298-godzilla-i-kong-novaya-imperiya.html"
+                    alt="Годзилла и Конг: Новая империя (2024)"
+                    title="Годзилла и Конг: Новая империя (2024)"
+                    >Годзилла и Конг: Новая империя</a
+                  >
+                </div>
+                <span class="rating">7.8</span
+                ><span class="year">2024, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226963-dom-u-dorogi.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/da299c96aeb86151e9b1.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Дом у дороги (2024)"
+                      title="Дом у дороги (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226963"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226963-dom-u-dorogi.html"
+                    alt="Дом у дороги (2024)"
+                    title="Дом у дороги (2024)"
+                    >Дом у дороги</a
+                  >
+                </div>
+                <span class="rating">7.8</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a
+                    href="film/226337-ohotniki-za-privideniyami-ledenyaschiy-uzhas.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/0a273ee9714095dda403.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Охотники за привидениями: Леденящий ужас (2024)"
+                      title="Охотники за привидениями: Леденящий ужас (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226337"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226337-ohotniki-za-privideniyami-ledenyaschiy-uzhas.html"
+                    alt="Охотники за привидениями: Леденящий ужас (2024)"
+                    title="Охотники за привидениями: Леденящий ужас (2024)"
+                    >Охотники за привидениями: Леденящий ужас</a
+                  >
+                </div>
+                <span class="rating">7.4</span
+                ><span class="year">2024, WEBRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226031-artur-ty-korol.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/71db0b43bea78a089f05.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Артур, ты король (2024)"
+                      title="Артур, ты король (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226031"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226031-artur-ty-korol.html"
+                    alt="Артур, ты король (2024)"
+                    title="Артур, ты король (2024)"
+                    >Артур, ты король</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2024, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226873-kung-fu-panda-4.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/7183a2040d8e4b2d0601.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Кунг-фу Панда 4 (2024)"
+                      title="Кунг-фу Панда 4 (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226873"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226873-kung-fu-panda-4.html"
+                    alt="Кунг-фу Панда 4 (2024)"
+                    title="Кунг-фу Панда 4 (2024)"
+                    >Кунг-фу Панда 4</a
+                  >
+                </div>
+                <span class="rating">7.6</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/224935-dyuna-chast-vtoraya.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/a7468ad5ff783260411b.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Дюна: Часть вторая (2024)"
+                      title="Дюна: Часть вторая (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="224935"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Лицензия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/224935-dyuna-chast-vtoraya.html"
+                    alt="Дюна: Часть вторая (2024)"
+                    title="Дюна: Часть вторая (2024)"
+                    >Дюна: Часть вторая</a
+                  >
+                </div>
+                <span class="rating">7.8</span
+                ><span class="year">2024, BDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226777-dogmen.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/01/e51e041a3253bb4be92f.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Догмен (2023)"
+                      title="Догмен (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226777"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Лицензия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226777-dogmen.html"
+                    alt="Догмен (2023)"
+                    title="Догмен (2023)"
+                    >Догмен</a
+                  >
+                </div>
+                <span class="rating">8.1</span
+                ><span class="year">2023, BDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/223211-akvamen-i-poteryannoe-tsarstvo.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/01/1299621253e2bf52e62b.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Аквамен и потерянное царство (2023)"
+                      title="Аквамен и потерянное царство (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="223211"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Лицензия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/223211-akvamen-i-poteryannoe-tsarstvo.html"
+                    alt="Аквамен и потерянное царство (2023)"
+                    title="Аквамен и потерянное царство (2023)"
+                    >Аквамен и потерянное царство</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2023, BDRip</span>
+              </li>
+            </ul>
+
+            <h2><a href="films.html">Фильмы</a></h2>
+            <ul class="items">
+              <li class="item">
+                <div class="poster">
+                  <a href="film/208366-luchshaya-zhizn.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/2db7ade65a7f690add83.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Лучшая жизнь (2022)"
+                      title="Лучшая жизнь (2022)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="208366"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Лицензия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/208366-luchshaya-zhizn.html"
+                    alt="Лучшая жизнь (2022)"
+                    title="Лучшая жизнь (2022)"
+                    >Лучшая жизнь</a
+                  >
+                </div>
+                <span class="rating">6.4</span
+                ><span class="year">2022, BDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227412-zlo-ne-suschestvuet.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/b31bc051edf5bdaf39eb.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Зло не существует (2023)"
+                      title="Зло не существует (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227412"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227412-zlo-ne-suschestvuet.html"
+                    alt="Зло не существует (2023)"
+                    title="Зло не существует (2023)"
+                    >Зло не существует</a
+                  >
+                </div>
+                <span class="rating">6.5</span
+                ><span class="year">2023, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227413-sudnaya-noch-v-arkadii.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/29c2aed299959177dcd8.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Судная ночь в Аркадии (2024)"
+                      title="Судная ночь в Аркадии (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227413"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227413-sudnaya-noch-v-arkadii.html"
+                    alt="Судная ночь в Аркадии (2024)"
+                    title="Судная ночь в Аркадии (2024)"
+                    >Судная ночь в Аркадии</a
+                  >
+                </div>
+                <span class="rating">7.6</span
+                ><span class="year">2024, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227425-dolgaya-igra.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/13e3de40c9d3a9d3ab4e.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Долгая игра (2023)"
+                      title="Долгая игра (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227425"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227425-dolgaya-igra.html"
+                    alt="Долгая игра (2023)"
+                    title="Долгая игра (2023)"
+                    >Долгая игра</a
+                  >
+                </div>
+                <span class="rating">6.2</span
+                ><span class="year">2023, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227426-otrazhenie-tmy.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/1174f2ef1121a14a725f.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Отражение тьмы (2023)"
+                      title="Отражение тьмы (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227426"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227426-otrazhenie-tmy.html"
+                    alt="Отражение тьмы (2023)"
+                    title="Отражение тьмы (2023)"
+                    >Отражение тьмы</a
+                  >
+                </div>
+                <span class="rating">6.3</span
+                ><span class="year">2023, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227427-tuman.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/ddf95b019d0904782181.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Туман (2023)"
+                      title="Туман (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227427"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227427-tuman.html"
+                    alt="Туман (2023)"
+                    title="Туман (2023)"
+                    >Туман</a
+                  >
+                </div>
+                <span class="rating">5.3</span
+                ><span class="year">2023, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227424-igra-korolevy.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/fdfcef7ccb7bc36defc0.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Игра королевы (2023)"
+                      title="Игра королевы (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227424"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227424-igra-korolevy.html"
+                    alt="Игра королевы (2023)"
+                    title="Игра королевы (2023)"
+                    >Игра королевы</a
+                  >
+                </div>
+                <span class="rating">7.3</span
+                ><span class="year">2023, TS</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a
+                    href="film/226337-ohotniki-za-privideniyami-ledenyaschiy-uzhas.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/0a273ee9714095dda403.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Охотники за привидениями: Леденящий ужас (2024)"
+                      title="Охотники за привидениями: Леденящий ужас (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226337"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226337-ohotniki-za-privideniyami-ledenyaschiy-uzhas.html"
+                    alt="Охотники за привидениями: Леденящий ужас (2024)"
+                    title="Охотники за привидениями: Леденящий ужас (2024)"
+                    >Охотники за привидениями: Леденящий ужас</a
+                  >
+                </div>
+                <span class="rating">7.4</span
+                ><span class="year">2024, WEBRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226338-omen-neporochnaya.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/831cf54686de85dce86b.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Омен. Непорочная (2024)"
+                      title="Омен. Непорочная (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226338"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226338-omen-neporochnaya.html"
+                    alt="Омен. Непорочная (2024)"
+                    title="Омен. Непорочная (2024)"
+                    >Омен. Непорочная</a
+                  >
+                </div>
+                <span class="rating">7</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/226494-hitmen-poslednee-delo.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/d3358f19d60fdb13a0cb.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Хитмен. Последнее дело (2023)"
+                      title="Хитмен. Последнее дело (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226494"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/226494-hitmen-poslednee-delo.html"
+                    alt="Хитмен. Последнее дело (2023)"
+                    title="Хитмен. Последнее дело (2023)"
+                    >Хитмен. Последнее дело</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2023, BDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227335-odnazhdy-v-la-roe.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/7a1d1231012701937d0d.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Однажды в Ла-Рое (2023)"
+                      title="Однажды в Ла-Рое (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227335"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Лицензия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227335-odnazhdy-v-la-roe.html"
+                    alt="Однажды в Ла-Рое (2023)"
+                    title="Однажды в Ла-Рое (2023)"
+                    >Однажды в Ла-Рое</a
+                  >
+                </div>
+                <span class="rating">6.9</span
+                ><span class="year">2023, BDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="film/227294-sled-killera.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/4850e82c489caf783802.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="След киллера (2024)"
+                      title="След киллера (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227294"
+                    title="Добавить в избранное"
+                  ></button>
+                </div>
+                <div class="title">
+                  <a
+                    href="film/227294-sled-killera.html"
+                    alt="След киллера (2024)"
+                    title="След киллера (2024)"
+                    >След киллера</a
+                  >
+                </div>
+                <span class="rating">6.9</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+            </ul>
+
+            <h2><a href="serials.html">Сериалы</a></h2>
+            <ul class="items">
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/227281-vse-ok.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/d6f1c4a8649614153ea6.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Все ОК (2024)"
+                      title="Все ОК (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227281"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">11 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/227281-vse-ok.html"
+                    alt="Все ОК (2024)"
+                    title="Все ОК (2024)"
+                    >Все ОК</a
+                  >
+                </div>
+                <span class="rating">7.2</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/226158-palm-royal.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/ea50dcfb9344b6bf3908.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Палм-Рояль (2024)"
+                      title="Палм-Рояль (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226158"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">7 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/226158-palm-royal.html"
+                    alt="Палм-Рояль (2024)"
+                    title="Палм-Рояль (2024)"
+                    >Палм-Рояль</a
+                  >
+                </div>
+                <span class="rating">7.4</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/191029-fbr.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2022/09/577cb5e1e69f7bd4f929.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="ФБР (2018)"
+                      title="ФБР (2018)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="191029"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">6 сезон 9 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/191029-fbr.html"
+                    alt="ФБР (2018)"
+                    title="ФБР (2018)"
+                    >ФБР</a
+                  >
+                </div>
+                <span class="rating">6.9</span
+                ><span class="year">2018, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/213648-zhenschina-pri-dengah.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2022/06/7c4f8a285b43fc815429.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Женщина при деньгах (2022)"
+                      title="Женщина при деньгах (2022)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="213648"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">2 сезон 4 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/213648-zhenschina-pri-dengah.html"
+                    alt="Женщина при деньгах (2022)"
+                    title="Женщина при деньгах (2022)"
+                    >Женщина при деньгах</a
+                  >
+                </div>
+                <span class="rating">6.7</span
+                ><span class="year">2022, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/226291-morozko.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/769a5cf62fe2fb467ade.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Морозко (2024)"
+                      title="Морозко (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226291"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Все серии</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/226291-morozko.html"
+                    alt="Морозко (2024)"
+                    title="Морозко (2024)"
+                    >Морозко</a
+                  >
+                </div>
+                <span class="rating">7.2</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/226710-postuchis-v-moyu-dver-v-moskve.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/02/fe7b5e6487e7d3b5fb13.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Постучись в мою дверь в Москве (2024)"
+                      title="Постучись в мою дверь в Москве (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226710"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">39 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/226710-postuchis-v-moyu-dver-v-moskve.html"
+                    alt="Постучись в мою дверь в Москве (2024)"
+                    title="Постучись в мою дверь в Москве (2024)"
+                    >Постучись в мою дверь в Москве</a
+                  >
+                </div>
+                <span class="rating">7.6</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/227295-goryachaya-tochka.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/a5519b72dd8f2847dca9.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Горячая точка (2019)"
+                      title="Горячая точка (2019)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227295"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Все серии</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/227295-goryachaya-tochka.html"
+                    alt="Горячая точка (2019)"
+                    title="Горячая точка (2019)"
+                    >Горячая точка</a
+                  >
+                </div>
+                <span class="rating">7.1</span
+                ><span class="year">2019, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/221377-papiny-dochki-novye.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2023/09/c11276b4118c15be4a1f.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Папины дочки. Новые (2023)"
+                      title="Папины дочки. Новые (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="221377"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">2 сезон 5 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/221377-papiny-dochki-novye.html"
+                    alt="Папины дочки. Новые (2023)"
+                    title="Папины дочки. Новые (2023)"
+                    >Папины дочки. Новые</a
+                  >
+                </div>
+                <span class="rating">7.1</span
+                ><span class="year">2023, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/226136-krasnye-butony.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/86456e94c6e1825b3089.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Красные бутоны (2023)"
+                      title="Красные бутоны (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226136"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">14 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/226136-krasnye-butony.html"
+                    alt="Красные бутоны (2023)"
+                    title="Красные бутоны (2023)"
+                    >Красные бутоны</a
+                  >
+                </div>
+                <span class="rating">7.3</span
+                ><span class="year">2023, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/227117-kiberpapa.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/5e5c4c57e5fa75c7e8e1.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Киберпапа (2024)"
+                      title="Киберпапа (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227117"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">14 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/227117-kiberpapa.html"
+                    alt="Киберпапа (2024)"
+                    title="Киберпапа (2024)"
+                    >Киберпапа</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/224908-segun.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/02/8c6f0b79a214317e6837.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Сёгун (2024)"
+                      title="Сёгун (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="224908"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">9 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/224908-segun.html"
+                    alt="Сёгун (2024)"
+                    title="Сёгун (2024)"
+                    >Сёгун</a
+                  >
+                </div>
+                <span class="rating">8</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="serial/227414-aeronavty.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/9f567797155e68ced41e.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Аэронавты (2022)"
+                      title="Аэронавты (2022)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="227414"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">1 серия</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="serial/227414-aeronavty.html"
+                    alt="Аэронавты (2022)"
+                    title="Аэронавты (2022)"
+                    >Аэронавты</a
+                  >
+                </div>
+                <span class="rating">6.6</span
+                ><span class="year">2022, HDRip</span>
+              </li>
+            </ul>
+
+            <h2><a href="tv.html">Телепередачи</a></h2>
+            <ul class="items">
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/217175-bitva-shefov.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2020/11/34eda6ee819fa6e31a4a.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Битва шефов (2020)"
+                      title="Битва шефов (2020)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="217175"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">3 сезон 29 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/217175-bitva-shefov.html"
+                    alt="Битва шефов (2020)"
+                    title="Битва шефов (2020)"
+                    >Битва шефов</a
+                  >
+                </div>
+                <span class="rating">6.9</span
+                ><span class="year">2020, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/212600-shou-voli.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2023/04/063a765973287d9c8b4d.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Шоу Воли (2023)"
+                      title="Шоу Воли (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="212600"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">2 сезон 11 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/212600-shou-voli.html"
+                    alt="Шоу Воли (2023)"
+                    title="Шоу Воли (2023)"
+                    >Шоу Воли</a
+                  >
+                </div>
+                <span class="rating">6.1</span
+                ><span class="year">2023, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/225174-novaya-fabrika-zvezd.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/39d3917fb87d304893ec.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Новая Фабрика звезд (2024)"
+                      title="Новая Фабрика звезд (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="225174"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">7 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/225174-novaya-fabrika-zvezd.html"
+                    alt="Новая Фабрика звезд (2024)"
+                    title="Новая Фабрика звезд (2024)"
+                    >Новая Фабрика звезд</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/225613-sokrovischa-imperatora.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/6e8790e1c3b381471e86.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Сокровища императора (2024)"
+                      title="Сокровища императора (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="225613"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">5 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/225613-sokrovischa-imperatora.html"
+                    alt="Сокровища императора (2024)"
+                    title="Сокровища императора (2024)"
+                    >Сокровища императора</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/208033-odnazhdy-v-rossii.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2020/11/4139a4d3d1c3307a7188.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Однажды в России (2014)"
+                      title="Однажды в России (2014)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="208033"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">11 сезон 1 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/208033-odnazhdy-v-rossii.html"
+                    alt="Однажды в России (2014)"
+                    title="Однажды в России (2014)"
+                    >Однажды в России</a
+                  >
+                </div>
+                <span class="rating">6.9</span
+                ><span class="year">2014, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/225995-novaya-fabrika-zvezd-dnevniki.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/03/4ecffcabc4fa924ab065.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Новая Фабрика звёзд. Дневники (2024)"
+                      title="Новая Фабрика звёзд. Дневники (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="225995"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">42 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/225995-novaya-fabrika-zvezd-dnevniki.html"
+                    alt="Новая Фабрика звёзд. Дневники (2024)"
+                    title="Новая Фабрика звёзд. Дневники (2024)"
+                    >Новая Фабрика звёзд. Дневники</a
+                  >
+                </div>
+                <span class="rating">7.4</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/212388-chto-gde-kogda.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2015/6/ZSIhcoLGAe.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Что? Где? Когда? (2024)"
+                      title="Что? Где? Когда? (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="212388"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">Весенняя серия игр 3 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/212388-chto-gde-kogda.html"
+                    alt="Что? Где? Когда? (2024)"
+                    title="Что? Где? Когда? (2024)"
+                    >Что? Где? Когда?</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2024, HDTVRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/220775-improvizatory.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2023/03/7af780655516d5472114.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Импровизаторы (2023)"
+                      title="Импровизаторы (2023)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="220775"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">3 сезон 3 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/220775-improvizatory.html"
+                    alt="Импровизаторы (2023)"
+                    title="Импровизаторы (2023)"
+                    >Импровизаторы</a
+                  >
+                </div>
+                <span class="rating">7.5</span
+                ><span class="year">2023, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/215043-zhenskij-stand-up.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2022/09/bf8e80cbca3500445240.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Женский Stand Up (2020)"
+                      title="Женский Stand Up (2020)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="215043"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">5 сезон 11 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/215043-zhenskij-stand-up.html"
+                    alt="Женский Stand Up (2020)"
+                    title="Женский Stand Up (2020)"
+                    >Женский Stand Up</a
+                  >
+                </div>
+                <span class="rating">7.2</span
+                ><span class="year">2020, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/226864-nevesta-ekstra-lyubov.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2024/04/47dfd376752b9b22d97c.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Невеста. Экстра любовь (2024)"
+                      title="Невеста. Экстра любовь (2024)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="226864"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">4 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/226864-nevesta-ekstra-lyubov.html"
+                    alt="Невеста. Экстра любовь (2024)"
+                    title="Невеста. Экстра любовь (2024)"
+                    >Невеста. Экстра любовь</a
+                  >
+                </div>
+                <span class="rating">7.3</span
+                ><span class="year">2024, HDRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/6709-ufc-mma-box.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2020/03/b155ec04e8de1f44a344.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="UFC / MMA / BOX (2019)"
+                      title="UFC / MMA / BOX (2019)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="6709"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">UFC 300</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/6709-ufc-mma-box.html"
+                    alt="UFC / MMA / BOX (2019)"
+                    title="UFC / MMA / BOX (2019)"
+                    >UFC / MMA / BOX</a
+                  >
+                </div>
+                <span class="rating">7.6</span
+                ><span class="year">2019, HDTVRip</span>
+              </li>
+
+              <li class="item">
+                <div class="poster">
+                  <a href="tv_show/9666-bitva-ekstrasensov.html"
+                    ><img
+                      src="../st.kinobase.org/storage/242x358/posters/2015/9/PSRiF8s0Xc.jpg"
+                      class="img-responsive"
+                      loading="lazy"
+                      alt="Битва экстрасенсов (2018)"
+                      title="Битва экстрасенсов (2018)"
+                      width="242"
+                      height="358" /></a
+                  ><button
+                    class="favorite"
+                    data-movie-id="9666"
+                    title="Добавить в избранное"
+                  ></button>
+                  <div class="label">24 сезон 4 выпуск</div>
+                </div>
+                <div class="title">
+                  <a
+                    href="tv_show/9666-bitva-ekstrasensov.html"
+                    alt="Битва экстрасенсов (2018)"
+                    title="Битва экстрасенсов (2018)"
+                    >Битва экстрасенсов</a
+                  >
+                </div>
+                <span class="rating">7.2</span
+                ><span class="year">2018, HDRip</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer">
+        <p>Пишите нам на почту: <a href="#" id="footer_mail"></a></p>
+      </div>
+    </div>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YVVGQK3VQZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-YVVGQK3VQZ");
+    </script>
+  </body>
+
+  <!-- Mirrored from kinobase.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Apr 2024 09:41:44 GMT -->
+</html>
