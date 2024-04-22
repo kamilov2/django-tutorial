@@ -47,7 +47,7 @@
             {% for movie in object_list %}
               <li class="item">
                 <div class="poster">
-                  <a href="#"
+                  <a href="{% url 'movie:detail' movie.slug %}"
                     ><img
                       src="{{ movie.poster.url }}"
                       class="img-responsive"
@@ -64,7 +64,7 @@
                 </div>
                 <div class="title">
                   <a
-                    href="#"
+                    href="{% url 'movie:detail' movie.slug %}"
                     alt="{{movie.name}}"
                     title="{{movie.name}}"
                     >{{movie.name}}</a
