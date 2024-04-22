@@ -30,8 +30,8 @@ class Author(models.Model):
         return self.name
 
 QUAITY = (
-    ('ts',"TS")
-    ('bdrip',"BDRIP")
+    ('ts',"TS"),
+    ('bdrip',"BDRIP"),
     ('hdrip',"HDRIP")
 )
 
@@ -40,17 +40,25 @@ class Movie(models.Model):
     name = models.CharField(max_length=150)
     origin_name = models.CharField(max_length=150, blank=True)
     year = models.PositiveSmallIntegerField(default=0)
-    genres = models.ManyToManyField(Genre, null=True)
+    genres = models.ManyToManyField(Genre)
     quality = models.CharField(choices=QUAITY, max_length=150, blank=True)
-    author = models.ManyToManyField(Author, null=True, related_name="movies")
+    author = models.ManyToManyField(Author, related_name="movies")
     duration = models.CharField(max_length=150, blank=True)
     short_description = models.TextField(blank=True)
     sd_file_url = models.URLField(blank=True)
     hd_file_url = models.URLField(blank=True)
 
-    rating = models.PositiveIntegerField(default=0)
-    imdb_rating = models.PositiveIntegerField(default=0)
-    kp_rating = models.PositiveIntegerField(default=0)
+    rating = models.FloatField(default=0)
+    imdb_rating = models.FloatField(default=0)
+    kp_rating = models.FloatField(default=0)
+
+    def __str__(self) -> str:
+        return self.name
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=150, default="Guest")
+    text = models.TextField()
 
     def __str__(self) -> str:
         return self.name

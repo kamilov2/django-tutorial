@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic.base import TemplateView
+from django.views.generic import ListView
 # Create your views here.
+from .models import *
 
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
+    model = Movie
     template_name = "kinobase.org/index.html"
