@@ -21,19 +21,6 @@
 
 
 
-    <script type="text/javascript">
-      window.addEventListener("DOMContentLoaded", function () {
-        $.ajax({
-          dataType: "json",
-          url: "/user_data",
-          data: { page: "index" },
-          success: function (data) {
-            $("body").prepend(data.branding);
-            $("#footer").append(data.sticker);
-          },
-        });
-      });
-    </script>
 
     <div id="root" class="dark">
 
