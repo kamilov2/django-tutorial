@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'users',
     'django_countries',
 ]
+CSRF_TRUSTED_ORIGINS = ["https://*.serveo.net"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
