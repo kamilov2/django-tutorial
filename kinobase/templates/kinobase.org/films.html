@@ -1,535 +1,70 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 
-<!-- Mirrored from kinobase.org/films by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Apr 2024 09:41:44 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-<meta charset="utf-8">
-<meta name="color-scheme" content="dark">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="application-name" content="Кинобейс">
-<title>Фильмы онлайн</title>
-<meta name="keywords" content="Кинобейс, kinobase, смотреть фильмы онлайн, фильмы онлайн в хорошем качестве, кино смотреть онлайн, смотреть сериалы онлайн, сериалы онлайн в хорошем качестве, смотреть фильмы бесплатно, онлайн-кинотеатр">
-<meta name="description" content="Смотрите бесплатно на сайте кинобейс - фильмы, сериалы и телепередачи в хорошем качестве">
-<link rel="dns-prefetch" href="https://st.kinobase.org/">
-<link rel="preconnect" href="https://st.kinobase.org/">
-<link rel="icon" href="../st.kinobase.org/favicon864e.png?v=1710486442653" type="image/png">
-<link rel="icon" href="https://st.kinobase.org/favicon.ico?v=1710486442653" type="image/x-icon">
-<link rel="stylesheet" href="../st.kinobase.org/static/css/style864e.css?v=1710486442653" type="text/css">
+  <meta charset="utf-8" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="application-name" content="Кинобейс" />
+  <title>Filter</title>
+  <meta name="keywords"
+    content="Кинобейс, kinobase, смотреть фильмы онлайн, фильмы онлайн в хорошем качестве, кино смотреть онлайн, смотреть сериалы онлайн, сериалы онлайн в хорошем качестве, смотреть фильмы бесплатно, онлайн-кинотеатр" />
+  <meta name="description"
+    content="Смотрите бесплатно на сайте кинобейс - фильмы, сериалы и телепередачи в хорошем качестве" />
+
+  {% include 'components/styles_css.html' %}
 </head>
+
 <body class="dark">
 
-<script src="../st.kinobase.org/static/js/jqueryae52.js?v=5" defer></script>
-<script src="../st.kinobase.org/static/js/bootae52.js?v=5" defer></script>
-<script src="../st.kinobase.org/static/js/master864e.js?v=1710486442653" defer></script>
-
-<script type="text/javascript">
-var IMAGES_URL = "https://st.kinobase.org/";
-var STATIC_URL = "https://st.kinobase.org/";
-var STATIC_VERSION = "1710486442653";
-var CURRENT_USER_ID = 0;
-var SITE_MAIL = ('support' + '@' + 'kinobase.org');
-var RECAPTCHA_SITEKEY = '6Ld5MCUTAAAAALXvmUFVUdqxSgy9a8Kf3zeVvGEJ';
-</script>
-
-<script type="text/javascript">
-window.addEventListener("DOMContentLoaded", function(){$.ajax({dataType:"json",url:"/user_data",data:{page:"index"},success:function(data){$("body").prepend(data.branding);$("#footer").append(data.sticker);}})});
-</script>
-
-<div id="root" class="dark">
-<div id="header"><div class="container">
-    <div id="logo"><a href="index.html" title="Кинобейс"><img src="../st.kinobase.org/static/images/logo5e1f.png?v=2" width="26" height="25" alt="Кинобейс" title="Кинобейс"></a></div>
-
-    <ul id="menu" class="nav nav-left">
-        <li><a href="films.html">Фильмы</a></li>
-        <li><a href="serials.html">Сериалы</a></li>
-        <li><a href="tv.html">Телепередачи</a></li>
-        <li><a href="animation.html">Мультфильмы</a></li>
-        <li><a href="soon.html">Скоро</a></li>
-        <li><a href="collections.html">Подборки</a></li>
-    </ul>
-
-    <ul class="nav nav-right">
-        <li id="slide">
-            <a href="#" alt="Навигация" title="Навигация"><svg height="18" width="18" class="icon" viewBox="2.5 3.5 11 9"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></a>
-        </li>
-        <li id="slide_close">
-            <a href="#" alt="Закрыть навигацию" title="Закрыть навигацию"><svg height="18" width="18" class="icon" viewBox="0 1 14 14"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg></a>
-        </li>
-        <li id="open_search">
-            <a href="#" alt="Поиск" title="Поиск"><svg height="18" width="18" class="icon" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg></a>
-        </li>
-
-        <li id="settings" class="dropdown">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" alt="Войти в профиль" title="Войти в профиль"><svg height="18" width="18" class="icon" viewBox="0 0 16 16"><path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/><path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/></svg></a>
-            
-            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                    <button class="abtn login" alt="Войти в профиль" title="Войти в профиль">Войти в профиль</button>
-                    <div class="links">
-                        <p><a href="recover.html" class="recover">Я не помню пароль</a></p>
-                        <p><a href="registration.html" class="register">Зарегистрироваться</a></p>
-                    </div>
-                </li>
-                
-                <li role="separator" class="divider"></li>
-                <li><button class="abtn player_settings" title="Настройки плеера">Настройки плеера</button><span id="player_help" class="muted"></span></li>
-                <li role="separator" class="divider"></li>
-                <li>
-                    <span class="muted" id="swdark">Темный</span>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="theme_switch">
-                    </div>
-                    <span class="muted" id="swlight">Светлый</span>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
-    <div id="header_search" class="nav-right">
-        <form action="https://kinobase.org/search" method="get" id="search_form">
-            <span id="search_back" title="Назад"></span>
-            <input type="text" name="query" placeholder="Поиск" value="" autocomplete="off" id="search_input">
-            <input type="submit" value="" id="search_btn">
-        </form>
-    </div>
-
-    <div id="slide_menu">
-        <ul>
-            <li><a href="films.html">Фильмы</a></li>
-            <li><a href="serials.html">Сериалы</a></li>
-            <li><a href="tv.html">Телепередачи</a></li>
-            <li><a href="animation.html">Мультфильмы</a></li>
-            <li><a href="soon.html">Скоро</a></li>
-            <li><a href="collections.html">Подборки</a></li>
-        </ul>
-    </div>
-
-</div></div>
-
-<div id="main"><div class="container">
 
 
 
+  <div id="root" class="dark">
 
-<div id="filters_row" class="row">
-<div class="left">
-    <h1>Фильмы</h1>
-</div>
-<div class="right" id="filters">
-    <div class="dropdown">
-        <a class="dropdown-toggle" rel="nofollow" href="#" alt="Фильтры" title="Фильтры" data-toggle="dropdown">
-                    <svg height="18" width="18" class="icon" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M8 7.1a1.35 1.35 0 1 0 0-2.7 1.35 1.35 0 0 0 0 2.7Zm0 1.4c1.259 0 2.32-.846 2.646-2H21.25a.75.75 0 0 0 0-1.5H10.646a2.751 2.751 0 0 0-5.292 0H2.75a.75.75 0 0 0 0 1.5h2.604A2.751 2.751 0 0 0 8 8.5Zm8 4.85a1.35 1.35 0 1 0 0-2.7 1.35 1.35 0 0 0 0 2.7Zm2.646-.6a2.751 2.751 0 0 1-5.293 0H2.75a.75.75 0 0 1 0-1.5h10.604a2.751 2.751 0 0 1 5.293 0h2.603a.75.75 0 0 1 0 1.5h-2.604Zm-9.296 5.5a1.35 1.35 0 1 1-2.7 0 1.35 1.35 0 0 1 2.7 0Zm1.296.75a2.751 2.751 0 0 1-5.292 0H2.75a.75.75 0 0 1 0-1.5h2.604a2.751 2.751 0 0 1 5.292 0H21.25a.75.75 0 0 1 0 1.5H10.646Z" clip-rule="evenodd"/></svg> <span>Фильтры</span>
-                </a>
+    {% include 'components/header.html' %}
 
-        <div id="filter" class="dropdown-menu dropdown-menu-right">
-            <ul id="filter_main">
-                <li><a href="#" onclick="dropdown_filter('genres', true);return false;"><span class="left">Жанр</span> <span class="right"><span class="next"></span></span></a></li>
-                <li><a href="#" onclick="dropdown_filter('countries', true);return false;"><span class="left">Страна</span> <span class="right"><span class="next"></span></span></a></li>
-                <li><a href="#" onclick="dropdown_filter('years', true);return false;"><span class="left">Год</span> <span class="right"><span class="next"></span></span></a></li>
-                                <li><a href="#" onclick="dropdown_filter('video', true);return false;"><span class="left">Качество</span> <span class="right"><span class="next"></span></span></a></li>
-                <li><a href="#" onclick="dropdown_filter('audio', true);return false;"><span class="left">Перевод</span> <span class="right"><span class="next"></span></span></a></li>
-                            </ul>
-
-            <div id="filter_genres" class="hide">
-                <ul>
-                    <li><a href="#" class="title-options" onclick="dropdown_filter('genres', false);return false;"><span class="prev"></span> Жанр</a></li>
-                    <li role="separator" class="divider"></li>
-                </ul>
-                <ul id="genres" class="options"></ul>
-            </div>
-
-            <div id="filter_countries" class="hide">
-                <ul>
-                    <li><a href="#" class="title-options" onclick="dropdown_filter('countries', false);return false;"><span class="prev"></span> Страна</a></li>
-                    <li role="separator" class="divider"></li>
-                </ul>
-                <ul id="countries" class="options"></ul>
-            </div>
-
-            <div id="filter_years" class="hide">
-                <ul>
-                    <li><a href="#" class="title-options" onclick="dropdown_filter('years', false);return false;"><span class="prev"></span> Год</a></li>
-                    <li role="separator" class="divider"></li>
-                </ul>
-                <ul id="years" class="options"></ul>
-            </div>
-
-                        <div id="filter_video" class="hide">
-                <ul>
-                    <li><a href="#" class="title-options" onclick="dropdown_filter('video', false);return false;"><span class="prev"></span> Качество</a></li>
-                    <li role="separator" class="divider"></li>
-                </ul>
-                <ul id="video" class="options"></ul>
-            </div>
-
-            <div id="filter_audio" class="hide">
-                <ul>
-                    <li><a href="#" class="title-options" onclick="dropdown_filter('audio', false);return false;"><span class="prev"></span> Перевод</a></li>
-                    <li role="separator" class="divider"></li>
-                </ul>
-                <ul id="audio" class="options"></ul>
-            </div>
-            
-            <div class="buttons">
-                <center>
-                    <button class="btn" id="clear_filters">Сбросить</button>
-                    <button class="btn" id="submit_filters">Применить</button>
-                </center>
-            </div>
+    <div id="main">
+      <div class="container">
+        <div id="index_page">
+         {% include 'components/filter.html' %}
+          <ul class="items">
+            {% for movie in object_list %}
+            <li class="item">
+              <div class="poster">
+                <a href="{% url 'movie:detail' movie.slug %}"><img src="{{ movie.poster.url }}" class="img-responsive"
+                    loading="lazy" alt="{{movie.name}}" title="{{movie.name}}" width="242" height="358" /></a><a
+                  href="{% url 'movie:add_to_favorite' movie.id %}" class="favorite" data-movie-id="227331"
+                  title="Добавить в избранное"></a>
+              </div>
+              <div class="title">
+                <a href="{% url 'movie:detail' movie.slug %}" alt="{{movie.name}}"
+                  title="{{movie.name}}">{{movie.name}}</a>
+              </div>
+              <span class="rating">{{movie.rating}}</span><span class="year">{{movie.year}}, {{movie.quality}}</span>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
-
+      </div>
     </div>
 
-    <div class="dropdown">
-        <a class="dropdown-toggle sort" rel="nofollow" href="#" alt="Сортировать" title="Сортировать" data-toggle="dropdown">
-                    <svg height="18" width="18" class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 17H4a1 1 0 0 0 0 2h4a1 1 0 0 0 0-2ZM14 11H4a1 1 0 0 0 0 2h10a1 1 0 0 0 0-2ZM20 5H4a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2Z"/></svg> <span>Сортировать</span>
-                </a>
-
-        <ul class="dropdown-menu dropdown-menu-right">
-            <li class="active"><a href="films.html" rel="nofollow">Новинки</a></li>
-            <li><a href="films5f91.html?sort=year" rel="nofollow">Год</a></li>
-            <li><a href="films67ec.html?sort=viewed_day" rel="nofollow">Популярные за сутки</a></li>
-            <li><a href="filmsa692.html?sort=viewed_week" rel="nofollow">Популярные за неделю</a></li>
-            <li><a href="films9066.html?sort=viewed_month" rel="nofollow">Популярные за месяц</a></li>
-            <li><a href="filmse6e7.html?sort=viewed_all" rel="nofollow">Популярные за все время</a></li>
-            <li><a href="films8b48.html?sort=rating" rel="nofollow">Рейтинг пользователей</a></li>
-                        <li><a href="films7f52.html?sort=kp_rating" rel="nofollow">Рейтинг Кинопоиск</a></li>
-            <li><a href="films7e06.html?sort=imdb_rating" rel="nofollow">Рейтинг IMDb</a></li>
-                    </ul>
+    <div id="footer">
+      <p>Пишите нам на почту: <a href="#" id="footer_mail"></a></p>
     </div>
-</div>
-</div>
+  </div>
 
-
-<ul class="items with_spacer">
-        <li class="item">
-            <div class="poster"><a href="film/208366-luchshaya-zhizn.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/2db7ade65a7f690add83.jpg" class="img-responsive" loading="lazy" alt="Лучшая жизнь (2022)" title="Лучшая жизнь (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="208366" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/208366-luchshaya-zhizn.html" alt="Лучшая жизнь (2022)" title="Лучшая жизнь (2022)">Лучшая жизнь</a></div>
-            <span class="rating">6.4</span><span class="year">2022, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227412-zlo-ne-suschestvuet.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/b31bc051edf5bdaf39eb.jpg" class="img-responsive" loading="lazy" alt="Зло не существует (2023)" title="Зло не существует (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227412" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227412-zlo-ne-suschestvuet.html" alt="Зло не существует (2023)" title="Зло не существует (2023)">Зло не существует</a></div>
-            <span class="rating">6.5</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227413-sudnaya-noch-v-arkadii.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/29c2aed299959177dcd8.jpg" class="img-responsive" loading="lazy" alt="Судная ночь в Аркадии (2024)" title="Судная ночь в Аркадии (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227413" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227413-sudnaya-noch-v-arkadii.html" alt="Судная ночь в Аркадии (2024)" title="Судная ночь в Аркадии (2024)">Судная ночь в Аркадии</a></div>
-            <span class="rating">7.6</span><span class="year">2024, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227425-dolgaya-igra.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/13e3de40c9d3a9d3ab4e.jpg" class="img-responsive" loading="lazy" alt="Долгая игра (2023)" title="Долгая игра (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227425" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227425-dolgaya-igra.html" alt="Долгая игра (2023)" title="Долгая игра (2023)">Долгая игра</a></div>
-            <span class="rating">6.2</span><span class="year">2023, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227426-otrazhenie-tmy.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/1174f2ef1121a14a725f.jpg" class="img-responsive" loading="lazy" alt="Отражение тьмы (2023)" title="Отражение тьмы (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227426" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227426-otrazhenie-tmy.html" alt="Отражение тьмы (2023)" title="Отражение тьмы (2023)">Отражение тьмы</a></div>
-            <span class="rating">6.3</span><span class="year">2023, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227427-tuman.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/ddf95b019d0904782181.jpg" class="img-responsive" loading="lazy" alt="Туман (2023)" title="Туман (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227427" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227427-tuman.html" alt="Туман (2023)" title="Туман (2023)">Туман</a></div>
-            <span class="rating">5.3</span><span class="year">2023, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227424-igra-korolevy.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/fdfcef7ccb7bc36defc0.jpg" class="img-responsive" loading="lazy" alt="Игра королевы (2023)" title="Игра королевы (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227424" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227424-igra-korolevy.html" alt="Игра королевы (2023)" title="Игра королевы (2023)">Игра королевы</a></div>
-            <span class="rating">7.3</span><span class="year">2023, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/226337-ohotniki-za-privideniyami-ledenyaschiy-uzhas.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/03/0a273ee9714095dda403.jpg" class="img-responsive" loading="lazy" alt="Охотники за привидениями: Леденящий ужас (2024)" title="Охотники за привидениями: Леденящий ужас (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="226337" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/226337-ohotniki-za-privideniyami-ledenyaschiy-uzhas.html" alt="Охотники за привидениями: Леденящий ужас (2024)" title="Охотники за привидениями: Леденящий ужас (2024)">Охотники за привидениями: Леденящий ужас</a></div>
-            <span class="rating">7.4</span><span class="year">2024, WEBRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/226338-omen-neporochnaya.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/03/831cf54686de85dce86b.jpg" class="img-responsive" loading="lazy" alt="Омен. Непорочная (2024)" title="Омен. Непорочная (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="226338" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/226338-omen-neporochnaya.html" alt="Омен. Непорочная (2024)" title="Омен. Непорочная (2024)">Омен. Непорочная</a></div>
-            <span class="rating">7</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/226494-hitmen-poslednee-delo.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/d3358f19d60fdb13a0cb.jpg" class="img-responsive" loading="lazy" alt="Хитмен. Последнее дело (2023)" title="Хитмен. Последнее дело (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="226494" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/226494-hitmen-poslednee-delo.html" alt="Хитмен. Последнее дело (2023)" title="Хитмен. Последнее дело (2023)">Хитмен. Последнее дело</a></div>
-            <span class="rating">7.5</span><span class="year">2023, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227335-odnazhdy-v-la-roe.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/7a1d1231012701937d0d.jpg" class="img-responsive" loading="lazy" alt="Однажды в Ла-Рое (2023)" title="Однажды в Ла-Рое (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227335" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/227335-odnazhdy-v-la-roe.html" alt="Однажды в Ла-Рое (2023)" title="Однажды в Ла-Рое (2023)">Однажды в Ла-Рое</a></div>
-            <span class="rating">6.9</span><span class="year">2023, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227294-sled-killera.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/4850e82c489caf783802.jpg" class="img-responsive" loading="lazy" alt="След киллера (2024)" title="След киллера (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227294" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227294-sled-killera.html" alt="След киллера (2024)" title="След киллера (2024)">След киллера</a></div>
-            <span class="rating">6.9</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/224935-dyuna-chast-vtoraya.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/a7468ad5ff783260411b.jpg" class="img-responsive" loading="lazy" alt="Дюна: Часть вторая (2024)" title="Дюна: Часть вторая (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="224935" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/224935-dyuna-chast-vtoraya.html" alt="Дюна: Часть вторая (2024)" title="Дюна: Часть вторая (2024)">Дюна: Часть вторая</a></div>
-            <span class="rating">7.8</span><span class="year">2024, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227273-vudi-vudpeker-otpravlyaetsya-v-lager.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/acbd5b766ef2b56c7cbf.jpg" class="img-responsive" loading="lazy" alt="Вуди Вудпекер отправляется в лагерь (2024)" title="Вуди Вудпекер отправляется в лагерь (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227273" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/227273-vudi-vudpeker-otpravlyaetsya-v-lager.html" alt="Вуди Вудпекер отправляется в лагерь (2024)" title="Вуди Вудпекер отправляется в лагерь (2024)">Вуди Вудпекер отправляется в лагерь</a></div>
-            <span class="rating">7.4</span><span class="year">2024, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227370-ues-shlagenhauf-umiraet.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/6b2d37add11b75d1b0c3.jpg" class="img-responsive" loading="lazy" alt="Уэс Шлагенхауф умирает (2022)" title="Уэс Шлагенхауф умирает (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227370" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227370-ues-shlagenhauf-umiraet.html" alt="Уэс Шлагенхауф умирает (2022)" title="Уэс Шлагенхауф умирает (2022)">Уэс Шлагенхауф умирает</a></div>
-            <span class="rating">6.2</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227371-primadonna.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/20e848f6d36dacd7145a.jpg" class="img-responsive" loading="lazy" alt="Примадонна (2022)" title="Примадонна (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227371" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227371-primadonna.html" alt="Примадонна (2022)" title="Примадонна (2022)">Примадонна</a></div>
-            <span class="rating">7.3</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227278-zoloto-reyna.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/987603e8c63eeccd7b27.jpg" class="img-responsive" loading="lazy" alt="Золото Рейна (2022)" title="Золото Рейна (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227278" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227278-zoloto-reyna.html" alt="Золото Рейна (2022)" title="Золото Рейна (2022)">Золото Рейна</a></div>
-            <span class="rating">7.1</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227280-totem.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/48dba9f37ea2985261e1.jpg" class="img-responsive" loading="lazy" alt="Тотем (2022)" title="Тотем (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227280" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227280-totem.html" alt="Тотем (2022)" title="Тотем (2022)">Тотем</a></div>
-            <span class="rating">7.2</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227279-lyubov-na-pervoy-polose.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/f94cdb1cc7c4a39c645e.jpg" class="img-responsive" loading="lazy" alt="Любовь на первой полосе (2022)" title="Любовь на первой полосе (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227279" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227279-lyubov-na-pervoy-polose.html" alt="Любовь на первой полосе (2022)" title="Любовь на первой полосе (2022)">Любовь на первой полосе</a></div>
-            <span class="rating">6</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227415-tescha.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/45db446e36121f0b6dfa.jpg" class="img-responsive" loading="lazy" alt="Тёща (2023)" title="Тёща (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227415" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/227415-tescha.html" alt="Тёща (2023)" title="Тёща (2023)">Тёща</a></div>
-            <span class="rating">6.9</span><span class="year">2023, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/224369-led-3.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/d123a158df80866b5c94.jpg" class="img-responsive" loading="lazy" alt="Лёд 3 (2024)" title="Лёд 3 (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="224369" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/224369-led-3.html" alt="Лёд 3 (2024)" title="Лёд 3 (2024)">Лёд 3</a></div>
-            <span class="rating">7.7</span><span class="year">2024, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/220553-ne-smotri-tuda.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/976465cd04e4bd133f2b.jpg" class="img-responsive" loading="lazy" alt="Не смотри туда (2023)" title="Не смотри туда (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="220553" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/220553-ne-smotri-tuda.html" alt="Не смотри туда (2023)" title="Не смотри туда (2023)">Не смотри туда</a></div>
-            <span class="rating">7</span><span class="year">2023, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227277-legenda-o-rusalke.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/7e311beb5d086ee8e692.jpg" class="img-responsive" loading="lazy" alt="Легенда о русалке (2022)" title="Легенда о русалке (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227277" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227277-legenda-o-rusalke.html" alt="Легенда о русалке (2022)" title="Легенда о русалке (2022)">Легенда о русалке</a></div>
-            <span class="rating">7.3</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/226984-tvorets-slez.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/0215df161ad4cbbf788f.jpg" class="img-responsive" loading="lazy" alt="Творец слёз (2024)" title="Творец слёз (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="226984" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/226984-tvorets-slez.html" alt="Творец слёз (2024)" title="Творец слёз (2024)">Творец слёз</a></div>
-            <span class="rating">7.9</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/225602-vozvraschenie-groznoy-semeyki.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/96bdc6121edbbb109e9b.jpg" class="img-responsive" loading="lazy" alt="Возвращение грозной семейки (2024)" title="Возвращение грозной семейки (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="225602" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/225602-vozvraschenie-groznoy-semeyki.html" alt="Возвращение грозной семейки (2024)" title="Возвращение грозной семейки (2024)">Возвращение грозной семейки</a></div>
-            <span class="rating">6.5</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227272-skrytaya-set.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/7a1d241988d3cb98df67.jpg" class="img-responsive" loading="lazy" alt="Скрытая сеть (2023)" title="Скрытая сеть (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227272" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227272-skrytaya-set.html" alt="Скрытая сеть (2023)" title="Скрытая сеть (2023)">Скрытая сеть</a></div>
-            <span class="rating">6.1</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227274-luchshie-hity.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/de38953fabbed915702b.jpg" class="img-responsive" loading="lazy" alt="Лучшие хиты (2024)" title="Лучшие хиты (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227274" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227274-luchshie-hity.html" alt="Лучшие хиты (2024)" title="Лучшие хиты (2024)">Лучшие хиты</a></div>
-            <span class="rating">5.7</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227269-dzhoyka.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/600db9c8499a34566474.jpg" class="img-responsive" loading="lazy" alt="Джойка (2023)" title="Джойка (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227269" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227269-dzhoyka.html" alt="Джойка (2023)" title="Джойка (2023)">Джойка</a></div>
-            <span class="rating">5.9</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227270-razdelennye-stenoy.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/61038b462d8dbe056772.jpg" class="img-responsive" loading="lazy" alt="Разделённые стеной (2024)" title="Разделённые стеной (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227270" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227270-razdelennye-stenoy.html" alt="Разделённые стеной (2024)" title="Разделённые стеной (2024)">Разделённые стеной</a></div>
-            <span class="rating">7.1</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227357-sobachya-zhizn-druzya-navek.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/73f5ceba32df77c2d978.jpg" class="img-responsive" loading="lazy" alt="Собачья жизнь: Друзья навек (2023)" title="Собачья жизнь: Друзья навек (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227357" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227357-sobachya-zhizn-druzya-navek.html" alt="Собачья жизнь: Друзья навек (2023)" title="Собачья жизнь: Друзья навек (2023)">Собачья жизнь: Друзья навек</a></div>
-            <span class="rating">7.8</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227266-dyavolskaya-pustota.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/5b748995e7ffbd1f00cf.jpg" class="img-responsive" loading="lazy" alt="Дьявольская пустота (2022)" title="Дьявольская пустота (2022)" width="242" height="358"></a><button class="favorite" data-movie-id="227266" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227266-dyavolskaya-pustota.html" alt="Дьявольская пустота (2022)" title="Дьявольская пустота (2022)">Дьявольская пустота</a></div>
-            <span class="rating">6.2</span><span class="year">2022, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227264-nemnogo-sveta.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/811c7bd409689405ac3a.jpg" class="img-responsive" loading="lazy" alt="Немного света (2024)" title="Немного света (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227264" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227264-nemnogo-sveta.html" alt="Немного света (2024)" title="Немного света (2024)">Немного света</a></div>
-            <span class="rating">7.9</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227265-ty-beremenna.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/524a5b43d93ed56ddef3.jpg" class="img-responsive" loading="lazy" alt="Ты беременна? (2023)" title="Ты беременна? (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227265" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227265-ty-beremenna.html" alt="Ты беременна? (2023)" title="Ты беременна? (2023)">Ты беременна?</a></div>
-            <span class="rating">7.2</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/226989-kak-poyti-na-svidanie-s-billi-uolshem.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/30075c2bf67f3a6e31dc.jpg" class="img-responsive" loading="lazy" alt="Как пойти на свидание с Билли Уолшем (2024)" title="Как пойти на свидание с Билли Уолшем (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="226989" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/226989-kak-poyti-na-svidanie-s-billi-uolshem.html" alt="Как пойти на свидание с Билли Уолшем (2024)" title="Как пойти на свидание с Билли Уолшем (2024)">Как пойти на свидание с Билли Уолшем</a></div>
-            <span class="rating">6.4</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/124748-paranormalnye-yavleniya-most-prizrakov.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/a329844afb925b5930a3.jpg" class="img-responsive" loading="lazy" alt="Паранормальные явления. Мост призраков (2020)" title="Паранормальные явления. Мост призраков (2020)" width="242" height="358"></a><button class="favorite" data-movie-id="124748" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/124748-paranormalnye-yavleniya-most-prizrakov.html" alt="Паранормальные явления. Мост призраков (2020)" title="Паранормальные явления. Мост призраков (2020)">Паранормальные явления. Мост призраков</a></div>
-            <span class="rating">6.6</span><span class="year">2020, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227293-vampirsha-gumanistka-ischet-otchayannogo-dobrovoltsa.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/671e0f11a2a7eeef37b0.jpg" class="img-responsive" loading="lazy" alt="Вампирша-гуманистка ищет отчаянного добровольца (2023)" title="Вампирша-гуманистка ищет отчаянного добровольца (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227293" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227293-vampirsha-gumanistka-ischet-otchayannogo-dobrovoltsa.html" alt="Вампирша-гуманистка ищет отчаянного добровольца (2023)" title="Вампирша-гуманистка ищет отчаянного добровольца (2023)">Вампирша-гуманистка ищет отчаянного добровольца</a></div>
-            <span class="rating">7.2</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227395-lyubov-do-poslednego.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/8f2a806ed692d2cec98f.jpg" class="img-responsive" loading="lazy" alt="Любовь до последнего (2023)" title="Любовь до последнего (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227395" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/227395-lyubov-do-poslednego.html" alt="Любовь до последнего (2023)" title="Любовь до последнего (2023)">Любовь до последнего</a></div>
-            <span class="rating">7.2</span><span class="year">2023, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227246-reinkarnatsiya-demony-zhelaniy.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/9c3918d46451ac55125f.jpg" class="img-responsive" loading="lazy" alt="Реинкарнация. Демоны желаний (2024)" title="Реинкарнация. Демоны желаний (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227246" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227246-reinkarnatsiya-demony-zhelaniy.html" alt="Реинкарнация. Демоны желаний (2024)" title="Реинкарнация. Демоны желаний (2024)">Реинкарнация. Демоны желаний</a></div>
-            <span class="rating">6.7</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227226-nachalnik-rezidentury.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/5b8e2e1e9230b8149e5e.jpg" class="img-responsive" loading="lazy" alt="Начальник резидентуры (2024)" title="Начальник резидентуры (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227226" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227226-nachalnik-rezidentury.html" alt="Начальник резидентуры (2024)" title="Начальник резидентуры (2024)">Начальник резидентуры</a></div>
-            <span class="rating">6.7</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227331-padenie-imperii.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/5b576314a37b19a2456d.jpg" class="img-responsive" loading="lazy" alt="Падение империи (2024)" title="Падение империи (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227331" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227331-padenie-imperii.html" alt="Падение империи (2024)" title="Падение империи (2024)">Падение империи</a></div>
-            <span class="rating">6.8</span><span class="year">2024, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/222511-oderzhimye-zlom.html"><img src="../st.kinobase.org/storage/242x358/posters/2023/10/0c7f7bbe4d6a5126d01a.jpg" class="img-responsive" loading="lazy" alt="Одержимые злом (2023)" title="Одержимые злом (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="222511" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/222511-oderzhimye-zlom.html" alt="Одержимые злом (2023)" title="Одержимые злом (2023)">Одержимые злом</a></div>
-            <span class="rating">6.5</span><span class="year">2023, BDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227282-zoloto-umalty.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/29b06a1d0517f334f217.jpg" class="img-responsive" loading="lazy" alt="Золото Умальты (2024)" title="Золото Умальты (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227282" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227282-zoloto-umalty.html" alt="Золото Умальты (2024)" title="Золото Умальты (2024)">Золото Умальты</a></div>
-            <span class="rating">6.8</span><span class="year">2024, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227054-mankimen.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/1e0982f0e6c2532161ae.jpg" class="img-responsive" loading="lazy" alt="Манкимэн (2024)" title="Манкимэн (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="227054" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227054-mankimen.html" alt="Манкимэн (2024)" title="Манкимэн (2024)">Манкимэн</a></div>
-            <span class="rating">7.2</span><span class="year">2024, TS</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227177-paranormalnye-yavleniya-drugoe-izmerenie.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/b7eabe43d4b1bb13adda.jpg" class="img-responsive" loading="lazy" alt="Паранормальные явления: Другое измерение (2023)" title="Паранормальные явления: Другое измерение (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227177" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227177-paranormalnye-yavleniya-drugoe-izmerenie.html" alt="Паранормальные явления: Другое измерение (2023)" title="Паранормальные явления: Другое измерение (2023)">Паранормальные явления: Другое измерение</a></div>
-            <span class="rating">7</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227178-idealnyy-partner.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/69bd9e7d51ec8f6bfc25.jpg" class="img-responsive" loading="lazy" alt="Идеальный партнёр (2020)" title="Идеальный партнёр (2020)" width="242" height="358"></a><button class="favorite" data-movie-id="227178" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227178-idealnyy-partner.html" alt="Идеальный партнёр (2020)" title="Идеальный партнёр (2020)">Идеальный партнёр</a></div>
-            <span class="rating">5.8</span><span class="year">2020, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/226638-spyaschie-psy.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/03/d096ae688fab6d2785b8.jpg" class="img-responsive" loading="lazy" alt="Спящие псы (2024)" title="Спящие псы (2024)" width="242" height="358"></a><button class="favorite" data-movie-id="226638" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/226638-spyaschie-psy.html" alt="Спящие псы (2024)" title="Спящие псы (2024)">Спящие псы</a></div>
-            <span class="rating">7.4</span><span class="year">2024, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227174-zlobnye-malenkie-pisma.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/bac661bc88bf183d30e1.jpg" class="img-responsive" loading="lazy" alt="Злобные маленькие письма (2023)" title="Злобные маленькие письма (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227174" title="Добавить в избранное"></button></div>
-            <div class="title"><a href="film/227174-zlobnye-malenkie-pisma.html" alt="Злобные маленькие письма (2023)" title="Злобные маленькие письма (2023)">Злобные маленькие письма</a></div>
-            <span class="rating">7.2</span><span class="year">2023, HDRip</span>
-        </li>
-        
-        <li class="item">
-            <div class="poster"><a href="film/227167-davnyaya-istoriya.html"><img src="../st.kinobase.org/storage/242x358/posters/2024/04/8b1b0c318c32fd72eaba.jpg" class="img-responsive" loading="lazy" alt="Давняя история (2023)" title="Давняя история (2023)" width="242" height="358"></a><button class="favorite" data-movie-id="227167" title="Добавить в избранное"></button><div class="label">Лицензия</div></div>
-            <div class="title"><a href="film/227167-davnyaya-istoriya.html" alt="Давняя история (2023)" title="Давняя история (2023)">Давняя история</a></div>
-            <span class="rating">6.5</span><span class="year">2023, BDRip</span>
-        </li>
-        </ul>
-<center><div id="pg_full"><ul class="pagination"><li class="disabled"><span class="prev">Предыдущая</span></li><li class="active"><span>1</span></li><li><a href="films4658.html?page=2">2</a></li><li><a href="films9ba9.html?page=3">3</a></li><li><a href="filmsfdb0.html?page=4">4</a></li><li><a href="filmsaf4d.html?page=5">5</a></li><li><a href="filmsc575.html?page=6">6</a></li><li class="disabled"><span>...</span></li><li><a href="filmsa785.html?page=385">385</a></li><li><a href="films4658.html?page=2" class="next">Следующая</a></li></ul></div></center><center><div id="pg_small"><ul class="pagination"><li class="disabled"><span class="prev">Предыдущая</span></li><li><select aria-label="Страницы" action="https://kinobase.org/films?" method="get"><option value="1" selected="selected">1 / 385</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="..." disabled="disabled">...</option><option value="385">385</option></select></li><li><a href="films4658.html?page=2" class="next">Следующая</a></li></ul></center>
-
-
-<script type="text/javascript">
-window.addEventListener("DOMContentLoaded", function() {
-    MOVIES_URL = "films.html";
-    MOVIES_SORT = "";
-
-    
-    genres = [{url:'biography',title:'Биография',ch:''},{url:'action',title:'Боевик',ch:''},{url:'western',title:'Вестерн',ch:''},{url:'war',title:'Военный',ch:''},{url:'detective',title:'Детектив',ch:''},{url:'documental',title:'Документальный',ch:''},{url:'drama',title:'Драма',ch:''},{url:'history',title:'Исторический',ch:''},{url:'comedy',title:'Комедия',ch:''},{url:'short-film',title:'Короткометражка',ch:''},{url:'crime',title:'Криминал',ch:''},{url:'melodrama',title:'Мелодрама',ch:''},{url:'mystic',title:'Мистика',ch:''},{url:'animation',title:'Мультфильм',ch:''},{url:'musical',title:'Мюзикл',ch:''},{url:'adventure',title:'Приключения',ch:''},{url:'family',title:'Семейный',ch:''},{url:'sport',title:'Спорт',ch:''},{url:'thriller',title:'Триллер',ch:''},{url:'horror',title:'Ужасы',ch:''},{url:'sci-fi',title:'Фантастика',ch:''},{url:'fantasy',title:'Фэнтези',ch:''},{}];
-    countries = [{url:'aus',title:'Австралия',ch:''},{url:'aut',title:'Австрия',ch:''},{url:'aze',title:'Азербайджан',ch:''},{url:'alb',title:'Албания',ch:''},{url:'arg',title:'Аргентина',ch:''},{url:'arm',title:'Армения',ch:''},{url:'afg',title:'Афганистан',ch:''},{url:'bah',title:'Багамы',ch:''},{url:'ban',title:'Бангладеш',ch:''},{url:'blr',title:'Беларусь',ch:''},{url:'bel',title:'Бельгия',ch:''},{url:'bg',title:'Болгария',ch:''},{url:'bol',title:'Боливия',ch:''},{url:'boh',title:'Босния и Герцеговина',ch:''},{url:'bra',title:'Бразилия',ch:''},{url:'gbr',title:'Великобритания',ch:''},{url:'hun',title:'Венгрия',ch:''},{url:'ven',title:'Венесуэла',ch:''},{url:'vie',title:'Вьетнам',ch:''},{url:'gan',title:'Гана',ch:''},{url:'gva',title:'Гватемала',ch:''},{url:'deu',title:'Германия',ch:''},{url:'hkg',title:'Гонконг',ch:''},{url:'gre',title:'Греция',ch:''},{url:'geo',title:'Грузия',ch:''},{url:'dnk',title:'Дания',ch:''},{url:'dom',title:'Доминикана',ch:''},{url:'egp',title:'Египет',ch:''},{url:'isr',title:'Израиль',ch:''},{url:'ind',title:'Индия',ch:''},{url:'ina',title:'Индонезия',ch:''},{url:'irn',title:'Иран',ch:''},{url:'irl',title:'Ирландия',ch:''},{url:'isl',title:'Исландия',ch:''},{url:'esp',title:'Испания',ch:''},{url:'ita',title:'Италия',ch:''},{url:'kaz',title:'Казахстан',ch:''},{url:'kam',title:'Камбоджа',ch:''},{url:'can',title:'Канада',ch:''},{url:'ken',title:'Кения',ch:''},{url:'kpr',title:'Кипр',ch:''},{url:'kir',title:'Киргизия',ch:''},{url:'chn',title:'Китай',ch:''},{url:'co',title:'Колумбия',ch:''},{url:'kor',title:'Корея Южная',ch:''},{url:'kos',title:'Косово',ch:''},{url:'kuv',title:'Кувейт',ch:''},{url:'kgz',title:'Кыргызстан',ch:''},{url:'lva',title:'Латвия',ch:''},{url:'lit',title:'Литва',ch:''},{url:'lux',title:'Люксембург',ch:''},{url:'mal',title:'Малайзия',ch:''},{url:'mex',title:'Мексика',ch:''},{url:'mol',title:'Молдова',ch:''},{url:'mon',title:'Монголия',ch:''},{url:'nep',title:'Непал',ch:''},{url:'nig',title:'Нигерия',ch:''},{url:'nld',title:'Нидерланды',ch:''},{url:'nz',title:'Новая Зеландия',ch:''},{url:'nor',title:'Норвегия',ch:''},{url:'aed',title:'ОАЭ',ch:''},{url:'pak',title:'Пакистан',ch:''},{url:'pan',title:'Панама',ch:''},{url:'par',title:'Парагвай',ch:''},{url:'per',title:'Перу',ch:''},{url:'pol',title:'Польша',ch:''},{url:'por',title:'Португалия',ch:''},{url:'pue',title:'Пуэрто Рико',ch:''},{url:'rus',title:'Россия',ch:''},{url:'ro',title:'Румыния',ch:''},{url:'sau',title:'Саудовская Аравия',ch:''},{url:'sen',title:'Сенегал',ch:''},{url:'kna',title:'Сент-Китс и Невис',ch:''},{url:'srb',title:'Сербия',ch:''},{url:'sin',title:'Сингапур',ch:''},{url:'syr',title:'Сирия',ch:''},{url:'svk',title:'Словакия',ch:''},{url:'slo',title:'Словения',ch:''},{url:'su',title:'СССР',ch:''},{url:'usa',title:'США',ch:''},{url:'tha',title:'Таиланд',ch:''},{url:'twn',title:'Тайвань',ch:''},{url:'tto',title:'Тринидад и Тобаго',ch:''},{url:'tun',title:'Тунис',ch:''},{url:'tur',title:'Турция',ch:''},{url:'uga',title:'Уганда',ch:''},{url:'uzb',title:'Узбекистан',ch:''},{url:'ukr',title:'Украина',ch:''},{url:'ury',title:'Уругвай',ch:''},{url:'phi',title:'Филиппины',ch:''},{url:'fin',title:'Финляндия',ch:''},{url:'fra',title:'Франция',ch:''},{url:'hor',title:'Хорватия',ch:''},{url:'cze',title:'Чехия',ch:''},{url:'csk',title:'Чехословакия',ch:''},{url:'chi',title:'Чили',ch:''},{url:'che',title:'Швейцария',ch:''},{url:'swe',title:'Швеция',ch:''},{url:'sri',title:'Шри-Ланка',ch:''},{url:'ekv',title:'Эквадор',ch:''},{url:'eri',title:'Эритрея',ch:''},{url:'est',title:'Эстония',ch:''},{url:'eth',title:'Эфиопия',ch:''},{url:'zaf',title:'ЮАР',ch:''},{url:'yug',title:'Югославия',ch:''},{url:'jpn',title:'Япония',ch:''},{}];
-    years = [{url:'2024',title:'2024',ch:''},{url:'2023',title:'2023',ch:''},{url:'2022',title:'2022',ch:''},{url:'2021',title:'2021',ch:''},{url:'2020',title:'2020',ch:''},{url:'2019',title:'2019',ch:''},{url:'2018',title:'2018',ch:''},{url:'2017',title:'2017',ch:''},{url:'2016',title:'2016',ch:''},{url:'2015',title:'2015',ch:''},{url:'2014',title:'2014',ch:''},{url:'2013',title:'2013',ch:''},{url:'2012',title:'2012',ch:''},{url:'2011',title:'2011',ch:''},{url:'2010',title:'2010',ch:''},{url:'2009',title:'2009',ch:''},{url:'2008',title:'2008',ch:''},{url:'2007',title:'2007',ch:''},{url:'2006',title:'2006',ch:''},{url:'2005',title:'2005',ch:''},{url:'2004',title:'2004',ch:''},{url:'2003',title:'2003',ch:''},{url:'2002',title:'2002',ch:''},{url:'2001',title:'2001',ch:''},{url:'2000',title:'2000',ch:''},{url:'1999',title:'1999',ch:''},{url:'1998',title:'1998',ch:''},{url:'1997',title:'1997',ch:''},{url:'1996',title:'1996',ch:''},{url:'1995',title:'1995',ch:''},{url:'1994',title:'1994',ch:''},{url:'1993',title:'1993',ch:''},{url:'1992',title:'1992',ch:''},{url:'1991',title:'1991',ch:''},{url:'1990',title:'1990',ch:''},{url:'1989',title:'1989',ch:''},{url:'1988',title:'1988',ch:''},{url:'1987',title:'1987',ch:''},{url:'1986',title:'1986',ch:''},{url:'1985',title:'1985',ch:''},{url:'1984',title:'1984',ch:''},{url:'1983',title:'1983',ch:''},{url:'1982',title:'1982',ch:''},{url:'1981',title:'1981',ch:''},{url:'1980',title:'1980',ch:''},{url:'1979',title:'1979',ch:''},{url:'1978',title:'1978',ch:''},{url:'1977',title:'1977',ch:''},{url:'1976',title:'1976',ch:''},{url:'1975',title:'1975',ch:''},{url:'1974',title:'1974',ch:''},{url:'1973',title:'1973',ch:''},{url:'1972',title:'1972',ch:''},{url:'1971',title:'1971',ch:''},{url:'1970',title:'1970',ch:''},{url:'1969',title:'1969',ch:''},{url:'1968',title:'1968',ch:''},{url:'1967',title:'1967',ch:''},{url:'1966',title:'1966',ch:''},{url:'1965',title:'1965',ch:''},{url:'1964',title:'1964',ch:''},{url:'1963',title:'1963',ch:''},{url:'1962',title:'1962',ch:''},{url:'1961',title:'1961',ch:''},{url:'1960',title:'1960',ch:''},{url:'1959',title:'1959',ch:''},{url:'1958',title:'1958',ch:''},{url:'1957',title:'1957',ch:''},{url:'1956',title:'1956',ch:''},{url:'1955',title:'1955',ch:''},{url:'1954',title:'1954',ch:''},{url:'1953',title:'1953',ch:''},{url:'1952',title:'1952',ch:''},{url:'1949',title:'1949',ch:''},{url:'1948',title:'1948',ch:''},{url:'1947',title:'1947',ch:''},{url:'1944',title:'1944',ch:''},{url:'1943',title:'1943',ch:''},{url:'1940',title:'1940',ch:''},{url:'1939',title:'1939',ch:''},{url:'1938',title:'1938',ch:''},{url:'1931',title:'1931',ch:''},{url:'1928',title:'1928',ch:''},{url:'1927',title:'1927',ch:''},{url:'1925',title:'1925',ch:''},{url:'1924',title:'1924',ch:''},{}];
-
-        video = [{url:'license',title:'Лицензия',ch:''},{url:'normal',title:'Приемлемое',ch:''},{}];
-    audio = [{url:'dubbing',title:'Дублированный',ch:''},{url:'uadubbing',title:'Дублированный (Украинский)',ch:''},{url:'allua',title:'Все украинские',ch:''},{url:'authors',title:'Все авторские',ch:''},{url:'dolsky',title:'Андрей Дольский',ch:''},{url:'gavrilov',title:'Андрей Гаврилов',ch:''},{url:'mihalyov',title:'Алексей Михалёв',ch:''},{url:'matveev',title:'Алексей Матвеев',ch:''},{url:'gorchakov',title:'Василий Горчаков',ch:''},{url:'puchkov',title:'Дмитрий Пучков (Гоблин)',ch:''},{url:'esarev',title:'Дмитрий Есарев',ch:''},{url:'volodarsky',title:'Леонид Володарский',ch:''},{url:'ivanov',title:'Михаил Иванов',ch:''},{url:'chadov',title:'Михаил Чадов',ch:''},{url:'vizgunov',title:'Сергей Визгунов',ch:''},{url:'glants',title:'Петр Гланц',ch:''},{url:'zhivov',title:'Юрий Живов',ch:''},{url:'serbin',title:'Юрий Сербин',ch:''},{}];
-    });
-</script>
-
-
-
-    </div>
-</div>
-
-<div id="footer">
-    <p>Пишите нам на почту: <a href="#" id="footer_mail"></a></p>
-</div>
-
-</div>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVGQK3VQZ"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-YVVGQK3VQZ');
-</script>
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVGQK3VQZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-YVVGQK3VQZ");
+  </script>
 </body>
 
-<!-- Mirrored from kinobase.org/films by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Apr 2024 09:42:21 GMT -->
+<!-- Mirrored from kinobase.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Apr 2024 09:41:44 GMT -->
+
 </html>

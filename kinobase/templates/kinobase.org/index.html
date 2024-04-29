@@ -1,90 +1,70 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="application-name" content="Кинобейс" />
-    <title>Кинобейс</title>
-    <meta
-      name="keywords"
-      content="Кинобейс, kinobase, смотреть фильмы онлайн, фильмы онлайн в хорошем качестве, кино смотреть онлайн, смотреть сериалы онлайн, сериалы онлайн в хорошем качестве, смотреть фильмы бесплатно, онлайн-кинотеатр"
-    />
-    <meta
-      name="description"
-      content="Смотрите бесплатно на сайте кинобейс - фильмы, сериалы и телепередачи в хорошем качестве"
-    />
 
-    {% include 'components/styles_css.html' %}
-  </head>
-  <body class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="application-name" content="Кинобейс" />
+  <title>Кинобейс</title>
+  <meta name="keywords"
+    content="Кинобейс, kinobase, смотреть фильмы онлайн, фильмы онлайн в хорошем качестве, кино смотреть онлайн, смотреть сериалы онлайн, сериалы онлайн в хорошем качестве, смотреть фильмы бесплатно, онлайн-кинотеатр" />
+  <meta name="description"
+    content="Смотрите бесплатно на сайте кинобейс - фильмы, сериалы и телепередачи в хорошем качестве" />
+
+  {% include 'components/styles_css.html' %}
+</head>
+
+<body class="dark">
 
 
 
 
-    <div id="root" class="dark">
+  <div id="root" class="dark">
 
     {% include 'components/header.html' %}
 
-      <div id="main">
-        <div class="container">
-          <div id="index_page">
-            <h2><a href="#">Популярные</a></h2>
-            <ul class="items">
+    <div id="main">
+      <div class="container">
+        <div id="index_page">
+         {% include 'components/filter.html' %}
+          <ul class="items">
             {% for movie in object_list %}
-              <li class="item">
-                <div class="poster">
-                  <a href="{% url 'movie:detail' movie.slug %}"
-                    ><img
-                      src="{{ movie.poster.url }}"
-                      class="img-responsive"
-                      loading="lazy"
-                      alt="{{movie.name}}"
-                      title="{{movie.name}}"
-                      width="242"
-                      height="358" /></a
-                  ><a
-                    href="{% url "movie:add_to_favorite" movie.id %}"
-                    class="favorite"
-                    data-movie-id="227331"
-                    title="Добавить в избранное"
-                  ></a>
-                </div>
-                <div class="title">
-                  <a
-                    href="{% url 'movie:detail' movie.slug %}"
-                    alt="{{movie.name}}"
-                    title="{{movie.name}}"
-                    >{{movie.name}}</a
-                  >
-                </div>
-                <span class="rating">{{movie.rating}}</span
-                ><span class="year">{{movie.year}}, {{movie.quality}}</span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+            <li class="item">
+              <div class="poster">
+                <a href="{% url 'movie:detail' movie.slug %}"><img src="{{ movie.poster.url }}" class="img-responsive"
+                    loading="lazy" alt="{{movie.name}}" title="{{movie.name}}" width="242" height="358" /></a><a
+                  href="{% url 'movie:add_to_favorite' movie.id %}" class="favorite" data-movie-id="227331"
+                  title="Добавить в избранное"></a>
+              </div>
+              <div class="title">
+                <a href="{% url 'movie:detail' movie.slug %}" alt="{{movie.name}}"
+                  title="{{movie.name}}">{{movie.name}}</a>
+              </div>
+              <span class="rating">{{movie.rating}}</span><span class="year">{{movie.year}}, {{movie.quality}}</span>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
-      </div>
-
-      <div id="footer">
-        <p>Пишите нам на почту: <a href="#" id="footer_mail"></a></p>
       </div>
     </div>
 
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-YVVGQK3VQZ"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-YVVGQK3VQZ");
-    </script>
-  </body>
+    <div id="footer">
+      <p>Пишите нам на почту: <a href="#" id="footer_mail"></a></p>
+    </div>
+  </div>
 
-  <!-- Mirrored from kinobase.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Apr 2024 09:41:44 GMT -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YVVGQK3VQZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-YVVGQK3VQZ");
+  </script>
+</body>
+
+<!-- Mirrored from kinobase.org/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Apr 2024 09:41:44 GMT -->
+
 </html>

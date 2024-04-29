@@ -12,4 +12,8 @@ urlpatterns = [
 
     path("favorites/", views.favorite_list, name="favorites"),
     path("history/", views.history_list, name="history"),
-]
+
+
+    path("filter/<str:filter_by_what>/<str:filter_data>",views.movie_filter, name="movie_filter")
+    
+    ]
