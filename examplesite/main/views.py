@@ -1,12 +1,14 @@
 import datetime
 from django.shortcuts import render
 
+from . models import Course,Group,Student
+
 # Create your views here.
 def home_page(request):
     data = {
-        "sitename":"examplesite",
-        "frontent":"html and css",
-        "backend":"Python Django",
-        "now":datetime.datetime.now()
+        # objects - Django ORM  baza bilan ishlash
+        "courses":Course.objects.all(), # SELECT * FROM course
+        "groups":Group.objects.all(),
     }
+    # print(dir(Course.objects.all()))
     return render(request, "index.html", context=data)

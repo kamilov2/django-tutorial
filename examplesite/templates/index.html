@@ -6,11 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+    <p>Courses</p>
     <ul>
-        <li>{{sitename}}</li>
-        <li>{{frontent}}</li>
-        <li>{{backend}}</li>
-        <li>{{now}}</li>
+        {% for course in courses %}
+        <li>{{course.name}}</li>
+        {% endfor %}
+    </ul>
+    <p>Groups</p>
+    <ul>
+        {% for gr in groups %}
+        <li>{{gr.name}}</li>
+        {% endfor %}
     </ul>
 </body>
 </html>
