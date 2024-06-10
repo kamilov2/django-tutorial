@@ -9,7 +9,11 @@
     <p>Courses</p>
     <ul>
         {% for course in courses %}
-        <li>{{course.name}}</li>
+        <li>
+            <a href="{% url 'main:course_detail' course.id %}">
+                {{course.name}}
+            </a>
+        </li>
         {% endfor %}
     </ul>
     <p>Groups</p>

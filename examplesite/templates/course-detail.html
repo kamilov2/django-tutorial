@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+</head>
+<body>
+    <h3>{{object.name}} </h3>
+    <p>{{object.duration}}</p>
+    <ul>
+        {% for course in courses %}
+        <li><a href="{% url 'main:course_detail' course.id %}">{{course.name}}</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
