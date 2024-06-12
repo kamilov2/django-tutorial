@@ -7,11 +7,46 @@
     <title>Blog - Home</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                {% for cat in categories %}
+                    <a class="">{{cat.name}}</a>
+               {% endfor %}
+            </div>
+            <div class="nav-center">
+              <a class="brand">
+                MyBlog
+              </a>
+            </div>
+            <div class="nav-right">
+                <a>About us</a>
+                <a>Contact</a>
+            </div>
+          </nav>
+    </header>
     <main>
         <section>
             <div class="container">
                 <h1>My Blog</h1>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    {% for post in object_list %}
+                    <div class="col">
+                        <div class="card">
+                            <h4>{{post.title}}</h4>
+                            <p>{{post.body|truncatewords:"15"}}</p>
+                            <p>
+                                <a href="">Read more</a>
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                
+                </div>
             </div>
         </section>
     </main>
