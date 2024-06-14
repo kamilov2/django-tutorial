@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+     {% block title %}
+    <title>Blog - Home</title>
+    {% endblock title %}
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                {% for cat in categories %}
+                    <a class="">{{cat.name}}</a>
+               {% endfor %}
+            </div>
+            <div class="nav-center">
+              <a class="brand">
+                MyBlog
+              </a>
+            </div>
+            <div class="nav-right">
+                <a>About us</a>
+                <a>Contact</a>
+            </div>
+          </nav>
+    </header>
+    {% block content %}
+    <!-- main element  -->
+    {% endblock %}
+    <footer></footer>
+</body>
+</html>

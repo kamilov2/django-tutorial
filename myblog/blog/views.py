@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.base import TemplateView
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 
 from .models import Category,Tag,Post
 
@@ -18,4 +18,16 @@ class HomePageView(ListView):
         context["categories"] =  Category.objects.all()
         return context
     
+
+class PostDetailView(DetailView):
+    model = Post # Post.objects.get()
+    template_name = "detail.html"
     
+    
+    def get_queryset(self): # SELECT * FROM Post WHERE slug=slug
+        return super().get_queryset()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] =  Category.objects.all()
+        return context

@@ -1,0 +1,45 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}
+<title>Blog - Detail</title>
+{% endblock title %}
+{% block content %}
+    <main>
+        <section>
+            <div class="container">
+                <h1>{{object.title}}</h1>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                    <p>{{post.body}}</p>
+                    <p>
+                        <ul style="display: flex; justify-content: space-between; list-style: none;">
+                            <li>
+                                <box-icon type='solid' name='calendar'></box-icon>
+                                {{object.published_time}}</li>
+                            <li>
+                                <box-icon type='solid' name='show'></box-icon>
+                                {{object.views}}</li>
+                            <li>
+                                <box-icon type='solid' name='like'></box-icon>
+                                {{object.likes}}</li>
+                            <li>
+                                <box-icon type='solid' name='dislike'></box-icon>
+                                {{object.dislikes}}</li>
+                        </ul>
+                    </p>
+                    <p>
+                        <p>Category :<a href="">{{object.category}}</a></p>
+                        <p>Tags :</p>
+                        <ul>
+                            {% for cat in object.tag.all %}
+                            <li><a href="">{{cat.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+   {% endblock %}
