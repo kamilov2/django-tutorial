@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Players</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <ul>
+                {% for leaguage in leagueages %}
+                <li>{{leaguage.name}}</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for club in clubs %}
+                <li>{{club.name}}</li>
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for player in object_list %}
+                <li>{{player.name}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
