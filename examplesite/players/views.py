@@ -13,5 +13,8 @@ class HomePageView(ListView):
         context = super().get_context_data(**kwargs)
         context["leagueages"] = Leaguage.objects.all()
         context["clubs"] = Club.objects.all()
+        context["text"] = """<i>Python</i> is better !"""
+        context["numbers"] = list(range(1,16))
+        
         return context
     

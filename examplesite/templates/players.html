@@ -1,29 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Players</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
     <main>
-        <div class="container">
-            <ul>
+        <section>
+            <div class="container">
+                <div>
+                    Hozi {% now "Y" %}-yil
+                </div>
+                <div>
+                    {% include "search_form.html" %}
+                </div>
+                <div>
+                    {% autoescape off %}
+                        {{text}}
+                    {% endautoescape %}
+                </div>
+                <div>
+                    {% for num in numbers %}
+                        {% if num < 5 %}
+                        <p>{{num}}</p>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="container">
+            <ul class="nav">
                 {% for leaguage in leagueages %}
-                <li>{{leaguage.name}}</li>
+                <li>
+                    <img src="{{leaguage.logo.url}}" width="50" alt="">
+                    {{leaguage.name}}
+
+                </li>
                 {% endfor %}
             </ul>
-            <ul>
+            <ul class="nav">
                 {% for club in clubs %}
-                <li>{{club.name}}</li>
+                <li>
+                    <img src="{{club.logo.url}}" width="50" alt="">
+                    {{club.name}}
+                </li>
                 {% endfor %}
             </ul>
             <ul>
                 {% for player in object_list %}
-                <li>{{player.name}}</li>
+                <li>
+                    <img src="{{player.image.url}}" width="50" alt="">
+                    {{player.name}}
+                </li>
                 {% endfor %}
             </ul>
         </div>
+        </section>
+        
     </main>
-</body>
-</html>
+{% endblock content %}
