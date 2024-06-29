@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="container">
+                <a href="{% url 'todo:add' %}">Add todo</a>
+            </div>
+            <div class="container">
+                <ul>
+                    {% for todo in object_list %}
+                    {% if todo.doned %}
+                    <li style="text-decoration: line-through;">{{todo.title}}</li>
+                    {% else %}
+                    <li> <a href="{% url "todo:update" todo.pk %}"> {{todo.title}}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
