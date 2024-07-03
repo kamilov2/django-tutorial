@@ -47,9 +47,9 @@ ul {
   }
   
   /* Set all odd list items to a different color (zebra-stripes) */
-  ul li:nth-child(odd) {
+  /* ul li:nth-child(odd) {
     background: #f9f9f9;
-  }
+  } */
   
   /* Darker background-color on hover */
   ul li:hover {
@@ -132,3 +132,23 @@ ul {
   .addBtn:hover {
     background-color: #bbb;
   }  
+
+  .red{
+    background-color: red;
+  }
+  .orange{
+    background-color: orange;
+  }
+  .lightblue{
+    background-color: lightblue;
+  }
+  .green{
+    background-color: green;
+  }
+
+  form{
+    display: flex;
+  }
+  select{
+    border: none;
+  }

@@ -9,6 +9,7 @@ from .models import Todo
 class HomePageView(ListView):
     model = Todo
     template_name = "index.html"
+    ordering = "-id"
 
 
     
@@ -23,7 +24,8 @@ class DoneToDo(View):
 
 def add_todo(request):
     todo_title = request.GET.get("todo")
-    Todo.objects.create(title=todo_title)
+    priority = request.GET.get("priority")
+    Todo.objects.create(title=todo_title, priority=priority)
     return redirect("/")
 
 def delete(request, todo_id):
