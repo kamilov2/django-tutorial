@@ -9,21 +9,40 @@
 </head>
 <body>
     <main>
-        <section>
             <div class="container">
-                <a href="{% url 'todo:add' %}">Add todo</a>
-            </div>
-            <div class="container">
+                <div id="myDIV" class="header">
+                    <h2>My To Do List</h2>
+                    <form action="{% url 'todo:add_todo' %}">
+                        <input type="text" name="todo" placeholder="Title...">
+                        <button type="submit" class="addBtn">Add</button>
+                    </form>
+                  </div>
+                  
+                  <ul id="myUl">
+                    {% for todo in object_list %}
+                    {% if not todo.doned %}
+                    <li> 
+                        <a href="{% url "todo:update" todo.pk %}"> {{todo.title}}</a> - 
+                        <a href="{% url 'todo:done' todo.id %}">Done</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+          
+                <br><br>
+                <h4>Doned Todos</h4>
                 <ul>
                     {% for todo in object_list %}
                     {% if todo.doned %}
-                    <li style="text-decoration: line-through;">{{todo.title}}</li>
-                    {% else %}
-                    <li> <a href="{% url "todo:update" todo.pk %}"> {{todo.title}}</a></li>
+                    <li >
+                        <span style="text-decoration: line-through;">{{todo.title}}</span>
+                        <a href="{% url 'todo:delete' todo.id %}">Delete</a>
+                    </li>
                     {% endif %}
                     {% endfor %}
                 </ul>
             </div>
+         </section>
         </section>
     </main>
 </body>
