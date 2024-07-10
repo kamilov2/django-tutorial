@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Home page</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section>
+            <div class="container">
+                <h1>Products</h1>
+                <div class="row">
+                    {% for product in object_list %}
+                    <div class="col-3">
+                        <div class="card">
+                            <header>
+                              <h4>{{product.name}}</h4>
+                            </header>
+                            <p>A nisi ullam ... cupiditate?</p>
+                            <footer class="is-right">
+                              <a class="button primary">Add to cart</a>
+                              <a class="button">View more</a>
+                            </footer>
+                          </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
