@@ -1,35 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store - Home page</title>
-</head>
-<body>
-    <header></header>
-    <main>
-        <section>
-            <div class="container">
-                <h1>Products</h1>
-                <div class="row">
-                    {% for product in object_list %}
-                    <div class="col-3">
-                        <div class="card">
-                            <header>
-                              <h4>{{product.name}}</h4>
-                            </header>
-                            <p>A nisi ullam ... cupiditate?</p>
-                            <footer class="is-right">
-                              <a class="button primary">Add to cart</a>
-                              <a class="button">View more</a>
-                            </footer>
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+      <main>
+        <section class="my-5">
+          <div class="container">
+              <div class="row">
+                {% for product in object_list %}
+                  <div class="col-md-4">
+                      <div class="card">
+                          <img src="{{product.image.url}}" class="card-image-top"
+                      
+                           alt="{{product.name}}">
+                          <div class="card-body">
+                              <h5 class="card-title">{{product.name}}</h5>
+                              <p class="card-text">
+                                <h3>
+                                    <span class="text-danger">${{product.price}}</span>
+                                    <strike class="text-secondary">${{product.price}}</strike>
+                                </h3>
+                                <span>
+                                    <i class="fas fa-star text-warning"></i> 
+                                    {{product.rating}}
+                                </span>
+
+                              </p>
+                              <a href="#" class="btn btn-primary">Add to Cart</a>
                           </div>
-                    </div>
-                    {% endfor %}
+                      </div>
                   </div>
-            </div>
+                  
+                  {% endfor %}
+
+              </div>
+          </div>
         </section>
-    </main>
-    <footer></footer>
-</body>
-</html>
+      </main>
+{% endblock content %}
