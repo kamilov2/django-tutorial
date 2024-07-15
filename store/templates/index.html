@@ -1,39 +1,112 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
-      <main>
-        <section class="my-5">
-          <div class="container">
-              <div class="row">
-                {% for product in object_list %}
-                  <div class="col-md-4">
-                      <div class="card">
-                          <img src="{{product.image.url}}" class="card-image-top"
-                      
-                           alt="{{product.name}}">
-                          <div class="card-body">
-                              <h5 class="card-title">{{product.name}}</h5>
-                              <p class="card-text">
-                                <h3>
-                                    <span class="text-danger">${{product.price}}</span>
-                                    <strike class="text-secondary">${{product.price}}</strike>
-                                </h3>
-                                <span>
-                                    <i class="fas fa-star text-warning"></i> 
-                                    {{product.rating}}
-                                </span>
+      <div class="container">
+        <div class="banner">
+            <h3>Аксессуары для iPhone 13 Pro Max</h3>
+            <img src="{% static 'img/13.png' %}" class="img-fluid">
+        </div>
+    </div>
 
-                              </p>
-                              <a href="#" class="btn btn-primary">Add to Cart</a>
-                          </div>
-                      </div>
+
+    <div class="container py-5">
+        <div class="row">
+          <h4 class="text-info">Чехлы</h4>
+            <div class="col-sm-12 col-md-4">
+                <div class="cards bg-white p-3 mt-3">
+                    <center>
+                    <img src="./img/22459-iwt 1.png" class="img-fluid" alt="">
+                    <h3>Стеклянные</h3>
+                    </center>
+                    <!-- <h4>Стеклянные</h4> -->
                   </div>
-                  
-                  {% endfor %}
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="cards bg-white p-3 mt-3">
+                    <center>
+                    <img src="./img/mellow-yellow-1 1.png" class="img-fluid" alt="">
+                    <h3>Силиконовые</h3>
+                    </center>
+                    <!-- <h4>Стеклянные</h4> -->
+                  </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="cards bg-white p-3 mt-3">
+                    <center>
+                    <img src="./img/Image.png" class="img-fluid" alt="">
+                    <h3>Кожаные</h3>
+                    </center>
+                    <!-- <h4>Стеклянные</h4> -->
+                  </div>
+            </div>
+    </div>
+    </div>
 
-              </div>
+
+
+    <div class="container py-5">
+      <div class="row">
+        <h4 class="text-info">Чехлы</h4>
+        {% for product in cases %}
+          <div class="col-sm-12 col-md-6 col-lg-4">
+
+              <div class="cards bg-white p-3 mt-3 mt-lg-5">
+                <i class="fa-regular fa-heart fs-4"></i>
+                  <center>
+                  <img src="{{product.image.url}}" class="img-fluid" alt="{{product.name}}">
+                  </center>
+                  <div class="d-flex py-3 gap-2 justify-content-between">
+                  <h3 class="">{{product.name}}</h3>
+                  <div class="">
+                  <h5 class="text-warning m-0">${{product.get_discount_price}}<h5>
+                  <h6 class="text-warning m-0 text-decoration-line-through">${{product.price}}<h6>
+                  </div>
+                  <h6>-{{product.discount}}%</h6>
+                </div>
+                  <a href="" class="text-warning text-decoration-none fs-5"> 
+                    <i class="fa-solid fa-star"></i> {{product.rating}} </a>
+                </div>
+
+
+
           </div>
-        </section>
-      </main>
-{% endblock content %}
+          {% endfor %}
+      </div>
+
+    </div>
+    <div class="container py-5">
+      <div class="row">
+        <h4 class="text-info">Наушники</h4>
+        {% for product in headphones %}
+          <div class="col-sm-12 col-md-6 col-lg-4">
+
+              <div class="cards bg-white p-3 mt-3 mt-lg-5">
+                <i class="fa-regular fa-heart fs-4"></i>
+                  <center>
+                  <img src="{{product.image.url}}" class="img-fluid" alt="{{product.name}}">
+                  </center>
+                  <div class="d-flex py-3 gap-2 justify-content-between">
+                  <h3 class="">{{product.name}}</h3>
+                  <div class="">
+                  <h5 class="text-warning m-0">${{product.get_discount_price}}<h5>
+                  <h6 class="text-warning m-0 text-decoration-line-through">${{product.price}}<h6>
+                  </div>
+                  <h6>-{{product.discount}}%</h6>
+                </div>
+                  <a href="" class="text-warning text-decoration-none fs-5"> 
+                    <i class="fa-solid fa-star"></i> {{product.rating}} </a>
+                </div>
+
+
+
+          </div>
+          {% endfor %}
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+{% endblock %}
