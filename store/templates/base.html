@@ -16,7 +16,8 @@
 
     <nav class="navbar navbar-expand-lg bg-white rounded" aria-label="Thirteenth navbar example">
       <div class="container-fluid">
-          <a class="navbar-brand col-lg-3 p-3" href="./index.html"><img src="./img/QPICK.png" alt="" class="img-fluid"></a>
+          <a class="navbar-brand col-lg-3 p-3" href="/">
+            <img src="{% static 'img/QPICK.png' %}" alt="" class="img-fluid"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,8 +44,12 @@
             <button class="btn btn-primary">Button</button>
           </div>
           <div class="d-flex mx-3 gap-3 text-dark">
-            <a href="./liked_product.html"><i class="fa-solid fa-heart fs-4 text-dark"></i></a>
-            <a href="./cart.html"><i class="fa-solid fa-cart-shopping fs-4 text-dark"></i></a>
+            <a href="./liked_product.html">
+              <i class="fa-solid fa-heart fs-4 text-dark"></i>
+            </a>
+            <a href="{% url 'cart:cart' %}">
+              <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
+            </a>
           </div>
         </div>
       </div>

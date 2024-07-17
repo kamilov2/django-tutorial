@@ -1,6 +1,6 @@
 from typing import Any
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 from .models import Product,Category
 # Create your views here.
 
@@ -19,4 +19,7 @@ class HomePageView(ListView):
         print(context["cases"])
         return context
     
-    
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = "detail.html"

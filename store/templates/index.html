@@ -47,24 +47,30 @@
     <div class="container py-5">
       <div class="row">
         <h4 class="text-info">Чехлы</h4>
-        {% for product in cases %}
+        {% for product in object_list %}
           <div class="col-sm-12 col-md-6 col-lg-4">
 
               <div class="cards bg-white p-3 mt-3 mt-lg-5">
                 <i class="fa-regular fa-heart fs-4"></i>
                   <center>
-                  <img src="{{product.image.url}}" class="img-fluid" alt="{{product.name}}">
+                 <a href="{% url 'main:detail' product.slug %}">
+                  <img src="{{product.image.url}}" class="img-fluid" height="290" alt="{{product.name}}">
+                 </a>
                   </center>
-                  <div class="d-flex py-3 gap-2 justify-content-between">
-                  <h3 class="">{{product.name}}</h3>
-                  <div class="">
-                  <h5 class="text-warning m-0">${{product.get_discount_price}}<h5>
-                  <h6 class="text-warning m-0 text-decoration-line-through">${{product.price}}<h6>
+                  <div class="d-flex py-3 gap-2 justify-content-between flex-column">
+                  <h5 class="">{{product.name}}</h5>
+                  <div class="d-flex gap-2 justify-content-between  ">
+                    <h5 class="text-warning m-0">${{product.get_discount_price}}<h5>
+                    <h6 class="text-warning m-0 text-decoration-line-through">
+                      ${{product.price}}
+                    </h6>
+                    <h6>-{{product.discount}}%</h6>
+                    <a href="" class="text-warning text-decoration-none fs-5"> 
+                      <i class="fa-solid fa-star"></i> {{product.rating}} </a>
                   </div>
-                  <h6>-{{product.discount}}%</h6>
+                 
                 </div>
-                  <a href="" class="text-warning text-decoration-none fs-5"> 
-                    <i class="fa-solid fa-star"></i> {{product.rating}} </a>
+                 
                 </div>
 
 
