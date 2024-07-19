@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import View
 from main.models import Product
-from .models import Cart
+from .models import Cart,CartProducts
 
 def cart_init(request):
     try:
@@ -16,13 +16,19 @@ def cart_init(request):
 class CartView(View):
     
     def get(self, request):
-        request.session.modified = True
-        # request.session["my_name"] = "Rustam"
-        # print(request.session["my_name"]) # Rustam
-        return render(request, "cart.html")
+        cart = cart_init(request)
+        return render(request, "cart.html",{"cart":cart})
 
 def add_product(request, product_id):
     cart = cart_init(request)
-    product = Product.objects.get(id=product_id)
-    cart.add(product)
-    return render(request, "cart.html")
+    cart.add(product_id)
+    return redirect("/cart/")
+
+def cart_product_update(request,action,product_id,item_id):
+    cart = cart_init(request)
+    item = CartProducts.objects.get(id=item_id)
+    if item.quantity == 1 and action == "minus":
+        return redirect("/cart/")
+    else:
+        cart.cart_product_update(action,product_id,item_id)
+    return redirect("/cart/")
