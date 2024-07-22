@@ -51,7 +51,15 @@
           <div class="col-sm-12 col-md-6 col-lg-4">
 
               <div class="cards bg-white p-3 mt-3 mt-lg-5">
-                <i class="fa-regular fa-heart fs-4"></i>
+                {% if product.id in request.session.wishlist %}
+                  <a href="{% url 'main:add_wishlist' product.id %}">
+                    <i class="fa-solid fa-heart fs-4"></i>
+                  </a>
+                {% else %}
+                  <a href="{% url 'main:add_wishlist' product.id %}">
+                    <i class="fa-regular fa-heart fs-4"></i>
+                  </a>
+                {% endif %}
                   <center>
                  <a href="{% url 'main:detail' product.slug %}">
                   <img src="{{product.image.url}}" class="img-fluid" height="290" alt="{{product.name}}">

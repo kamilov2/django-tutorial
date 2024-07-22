@@ -45,17 +45,28 @@
             <button class="btn btn-primary">Button</button>
           </div>
           <div class="d-flex mx-3 gap-3 text-dark">
-            <a href="./liked_product.html">
+            <a href="{% url 'main:wishlist' %}">
               <i class="fa-solid fa-heart fs-4 text-dark"></i>
             </a>
             <a href="{% url 'cart:cart' %}">
+              
+              <span >{{cart.total_quantity}}</span>
               <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
             </a>
           </div>
         </div>
       </div>
     </nav>
-
+    {% if messages %}
+    <div style="max-width: 33%; margin: 20px auto;">
+        {% for message in messages %}
+        <div{% if message.tags %} class=" alert alert-{{ message.tags }} fw-bold fs-5"{% endif %}>
+          <span role='button' class="float-end" onclick="this.parentElement.style.display = 'none'">X</span>
+          {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% block content %}
 {% endblock content %}
 
