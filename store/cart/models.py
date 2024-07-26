@@ -48,3 +48,8 @@ class Cart(models.Model):
             obj.price -= obj.product.get_discount_price()
             obj.save() # CartProduct.save()
             self.save() # Cart.save()
+    # def deleteProduct(self,action,product_id,item_id):
+    #     product = Product.objects.get(id=product_id)
+    #     obj = self.products.get(id=item_id)
+    #     if action == 'delete':
+            

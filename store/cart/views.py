@@ -32,3 +32,10 @@ def cart_product_update(request,action,product_id,item_id):
     else:
         cart.cart_product_update(action,product_id,item_id)
     return redirect("/cart/")
+
+
+def deleteProduct(request,item_id):
+    product = CartProducts.objects.get(id=item_id)
+    product.delete()
+    print(product)
+    return redirect('/cart/')    

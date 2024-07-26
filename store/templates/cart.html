@@ -9,7 +9,7 @@
         <div class="col-sm-12 col-md-8">
           {% for product in cart.products.all %}
           <div class="cards my-2">
-            <i class="fa-solid fa-trash float-end p-3 fs-4 text-danger"></i>
+            <a href="{% url 'cart:delete'  product.id %}"><i class="fa-solid fa-trash float-end p-3 fs-4 text-danger"></i></a>
             <div class=" d-flex flex-wrap align-items-center">
                 <img src="./img/air.png" class="img-fluid" alt="">
                 <div class="body p-3"><h3>{{product.product.name}}</h3>

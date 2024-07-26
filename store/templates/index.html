@@ -62,7 +62,7 @@
                 {% endif %}
                   <center>
                  <a href="{% url 'main:detail' product.slug %}">
-                  <img src="{{product.image.url}}" class="img-fluid" height="290" alt="{{product.name}}">
+                  <img src="{{product.image.url}}" class="img-fluid" height="290" style="height: 290px!important;object-fit: contain;" alt="{{product.name}}">
                  </a>
                   </center>
                   <div class="d-flex py-3 gap-2 justify-content-between flex-column">

@@ -48,10 +48,11 @@
             <a href="{% url 'main:wishlist' %}">
               <i class="fa-solid fa-heart fs-4 text-dark"></i>
             </a>
-            <a href="{% url 'cart:cart' %}">
-              
-              <span >{{cart.total_quantity}}</span>
-              <i class="fa-solid fa-cart-shopping fs-4 text-dark"></i>
+            <a href="{% url 'cart:cart' %}" class="
+             text-decoration-none text-dark">
+  
+              <i class="fa-solid fa-cart-shopping fs-4 "></i>
+              <sup class="w-100 fs-4 "  style="color: red;">{{cart.total_quantity}}</sup>
             </a>
           </div>
         </div>

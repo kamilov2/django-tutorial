@@ -7,10 +7,12 @@ from django.views.generic import ListView,DetailView
 from .models import Product,Category
 # Create your views here.
 
+
+
 class HomePageView(ListView):
     model = Product
     template_name = "index.html"
-    
+    context_object_name = 'item'
     def get_queryset(self):
         return Product.objects.filter(avilable=True)
     
