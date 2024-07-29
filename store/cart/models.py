@@ -52,4 +52,23 @@ class Cart(models.Model):
     #     product = Product.objects.get(id=product_id)
     #     obj = self.products.get(id=item_id)
     #     if action == 'delete':
-            
+
+
+class Order(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    phone  = models.CharField(max_length=250)
+    city = models.CharField(max_length=100)
+    street = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    paid = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-created',)
+
+    def __str__(self):
+        return 'Order {}'.format(self.id)
+
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.items.all())

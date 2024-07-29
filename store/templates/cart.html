@@ -33,7 +33,7 @@
             <h4>ИТОГО</h4>
             <h5>${{cart.total_price}}</h5>
           </div>
-          <a href="./checkout.html">
+          <a href="{% url 'cart:checkout' %}">
           <button class="btn btn-outline-dark w-100">Перейти к оформлению</button>   
           </a>    
         </div>
