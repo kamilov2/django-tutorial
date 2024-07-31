@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+      <div id="main">
+        <div class="container">
+         {% if "login" in request.path %}
+         <div id="login_page">
+          <h1>Вход</h1>
+          <form action="" method="post" role="form">
+            {% csrf_token %}
+            <input type="text" class="input w100" name="username" id="email" maxlength="50" value="" placeholder="Электронная почта" />
+            <input type="password" class="input w100" name="password" id="password" maxlength="100" placeholder="Пароль" />
+            <button class="btn radius big w100" type="submit">Войти</button>
+          </form>
+
+          <div class="links">
+            <p>
+              <a href="{% url "users:register" %}">Зарегистрироваться</a>
+            </p>
+          </div>
+        </div>
+        {% else %}
+          <div id="login_page">
+            <h1>Регистрация</h1>
+
+            <form action="" method="post" role="form">
+              {% csrf_token %}
+              <input type="email" class="input w100" name="email" id="email" maxlength="50" value="" placeholder="Электронная почта" />
+              <input type="input" class="input w100" name="first_name" id="name" maxlength="50" value="" placeholder="Ваше имя" />
+              <input type="input" class="input w100" name="last_name" id="name" maxlength="50" value="" placeholder="Ваше фамилия" />
+              <input type="password" class="input w100" name="password" id="password" maxlength="100" placeholder="Пароль" />
+              <input type="password" class="input w100" name="password_confirmation" id="password_confirmation" maxlength="100" placeholder="Подтвердите пароль" />
+
+              <button class="btn radius big w100" type="submit">Зарегистрироваться</button>
+            </form>
+
+            <div class="links">
+              <p>
+                <a href="login.html">Войти</a>
+              </p>
+            </div>
+          </div>
+        {% endif %}
+        </div>
+      </div>
+
+{% endblock content %}
