@@ -31,12 +31,12 @@ class Movie(models.Model):
     year = models.PositiveSmallIntegerField(default=0)
     kp_rating = models.FloatField(default=0)
     imdb_rating = models.FloatField(default=0)
-    image = models.ImageField(upload_to="movies/")
     quality = models.CharField(max_length=150, choices=[('ts', 'TS'), ('hdrip', 'Hdrip'), ('bdrip', 'Bdrip'),])
     duration = models.CharField(max_length=150,blank=True)
+    file_url = models.URLField(blank=True)
     
     def __str__(self):
-        return self.title
+        return str(self.title)
     
 
 class Rating(models.Model):
@@ -46,7 +46,7 @@ class Rating(models.Model):
 
 
     def __str__(self):
-        return self.movie.title
+        return "qale"
     
     
 class Author(models.Model):
@@ -54,11 +54,11 @@ class Author(models.Model):
     slug = models.SlugField(max_length=250, unique=True)
 
     def __str__(self):
-        return self.name
+        return "self.name"
 
 
 class Role(models.Model):
-    movie = models.ManyToManyField(Movie)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="roles")
     author = models.ManyToManyField(Author)
     
     actor = models.BooleanField(default=False)
@@ -67,7 +67,7 @@ class Role(models.Model):
     writer = models.BooleanField(default=False)
     
     def __str__(self):
-        return self.author.name
+        return self.author.name or "empty"
 
 
 class Comment(models.Model):
@@ -77,4 +77,4 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return self.user.username
+        return self.user.username or "empty"

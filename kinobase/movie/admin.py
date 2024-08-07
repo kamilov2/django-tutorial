@@ -13,13 +13,26 @@ class GenreAdmin(admin.ModelAdmin):
     list_display = ["id","slug"]
     prepopulated_fields = {"slug":("name",)}
     
+admin.site.register(Role)
+
+class MovieRoleStackedInline(admin.StackedInline):
+    model = Role
+    extra = 3
+    
+    
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ["id","slug"]
+    list_display = ["id", "title",]
     prepopulated_fields = {"slug":("title",)}
+    inlines = [MovieRoleStackedInline]
 
 
-admin.site.register(Role)
+
+
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ["id","slug"]
+    prepopulated_fields = {"slug":("name",)}
+
 admin.site.register(Rating)
-admin.site.register(Author)
 admin.site.register(Comment)
