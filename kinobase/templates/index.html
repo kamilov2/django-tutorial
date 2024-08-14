@@ -10,7 +10,14 @@
             <li class="item">
               <div class="poster">
                 <a href="{% url 'movie:movie_detail' movie.slug %}">
-                  <img src="{{movie.cover.url}}" class="img-responsive" loading="lazy" alt="{{movie.title}}" title="{{movie.title}}" width="242" height="358" /></a><button class="favorite" data-movie-id="231473" title="Добавить в избранное"></button>
+                  <img src="{{movie.cover.url}}" class="img-responsive" loading="lazy" alt="{{movie.title}}" title="{{movie.title}}" width="242" height="358" /></a>
+                  <a href="{% url 'movie:add_to_favorite' movie.id %}" 
+                  class="favorite {% if movie in request.user.profile.favorites.all %} is_favorited {% endif %}" data-movie-id="231473" title="
+                  {% if movie in request.user.profile.favorites.all %}
+                  Удалить из избранного
+                  {% else %}
+                  Добавить в избранное
+                  {% endif %}"></a>
               </div>
               <div class="title">
                 <a href="film/231473-navodnenie.html" alt="{{movie.title}}" title="{{movie.title}}">

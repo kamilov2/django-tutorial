@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.related .items{
+    width: 100%;
+    overflow: auto;
+}
+
 body, html {
     height: 100%;
 }

@@ -29,14 +29,27 @@ class Movie(models.Model):
     country = CountryField(multiple=True,blank=True)
     description = models.TextField(blank=True)
     year = models.PositiveSmallIntegerField(default=0)
+    rating_count = models.PositiveSmallIntegerField(default=0)
     kp_rating = models.FloatField(default=0)
     imdb_rating = models.FloatField(default=0)
     quality = models.CharField(max_length=150, choices=[('ts', 'TS'), ('hdrip', 'Hdrip'), ('bdrip', 'Bdrip'),])
     duration = models.CharField(max_length=150,blank=True)
     file_url = models.URLField(blank=True)
+    related_films = models.ManyToManyField("self", blank=True)
     
     def __str__(self):
         return str(self.title)
+    
+    def get_avg_rating(self):
+        ratings = self.ratings.all()
+        if ratings:
+            value = sum([item.value for item in ratings]) / len(ratings)
+            if value:
+                return value
+            else:
+                return 0
+        else:
+            return 0
     
 
 class Rating(models.Model):
@@ -46,7 +59,7 @@ class Rating(models.Model):
 
 
     def __str__(self):
-        return "qale"
+        return f"{self.user.username} - {self.movie.title} = {self.value}"
     
     
 class Author(models.Model):
@@ -54,7 +67,7 @@ class Author(models.Model):
     slug = models.SlugField(max_length=250, unique=True)
 
     def __str__(self):
-        return "self.name"
+        return self.name
 
 
 class Role(models.Model):

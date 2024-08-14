@@ -22,8 +22,9 @@ class MovieRoleStackedInline(admin.StackedInline):
     
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ["id", "title",]
+    list_display = ["id", "title",'origin_title']
     prepopulated_fields = {"slug":("title",)}
+    list_display_links = ['origin_title','title']
     inlines = [MovieRoleStackedInline]
 
 

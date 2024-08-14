@@ -17,6 +17,9 @@
     <link rel="icon" href="{% static 'favicon22a5.png' %}" type="image/png" />
     <link rel="icon" href="https://st.kinobase.org/favicon.ico?v=1714506415992" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'css/style22a5.css' %}" type="text/css" />
+    {% if "detail" in request.path %}
+      <script src="{% static 'js/playerjs.js' %}"></script>
+    {% endif %}
   </head>
   <body class="dark">
     <script src="{% static 'js/jqueryae52.js' %}" defer></script>
@@ -27,28 +30,15 @@
       <div id="header">
         <div class="container">
           <div id="logo">
-            <a href="index.html" title="Кинобейс"><img src="../st.kinobase.org/static/images/logo5e1f.png?v=2" width="26" height="25" alt="Кинобейс" title="Кинобейс" /></a>
+            <a href="{% url 'movie:movie_list' %}" title="Кинобейс"><img src="{% static 'images/logo5e1f.png' %}" width="26" height="25" alt="Кинобейс" title="Кинобейс" /></a>
           </div>
 
           <ul id="menu" class="nav nav-left">
+            {% for cat in category %}
             <li>
-              <a href="films.html">Фильмы</a>
+              <a href="{% url 'movie:category' cat.slug %}">{{cat.name}}</a>
             </li>
-            <li>
-              <a href="serials.html">Сериалы</a>
-            </li>
-            <li>
-              <a href="tv.html">Телепередачи</a>
-            </li>
-            <li>
-              <a href="animation.html">Мультфильмы</a>
-            </li>
-            <li>
-              <a href="soon.html">Скоро</a>
-            </li>
-            <li>
-              <a href="collections.html">Подборки</a>
-            </li>
+            {% endfor %}
           </ul>
 
           <ul class="nav nav-right">
@@ -91,7 +81,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="/favorites">
+                  <a href="{% url 'movie:favourites_page' %}">
                     <svg height="15" width="15" class="icon" viewBox="0 0 16 16">
                       <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"></path>
                     </svg>Избранное
@@ -178,10 +168,10 @@
           </ul>
 
           <div id="header_search" class="nav-right">
-            <form action="https://kinobase.org/search" method="get" id="search_form">
+            <form action="{% url 'movie:search' %}" method="get" id="search_form">
               <span id="search_back" title="Назад"></span>
               <input type="text" name="query" placeholder="Поиск" value="" autocomplete="off" id="search_input" />
-              <input type="submit" value="" id="search_btn" />
+              <input type="submit" value="" id="search_btn" name="name" />
             </form>
           </div>
 
@@ -209,7 +199,32 @@
           </div>
         </div>
       </div>
-
+      <style>
+        .message {
+          padding: 10px 15px;
+          background-color: aliceblue;
+          color: #000000;
+          border-radius: 5px;
+          z-index: 999;
+          position: absolute;
+          right: 5%;
+  
+        }
+      </style>
+  
+      {% if messages %}
+      <span class="message">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </span>
+      <script>
+        let msg = document.querySelector(".message");
+        setInterval(() => {
+          msg.style.display = "none"
+        }, 3000)
+      </script>
+      {% endif %}
       {% block content %}
       {% endblock %}
 

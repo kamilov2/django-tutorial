@@ -23,8 +23,13 @@
                                     <img src="{{object.cover.url}}"
                                         alt="Гадкий я 4" title="Гадкий я 4" itemprop="image" class="img_responsive"
                                         loading="lazy">
-                                    <button class="favorite" data-movie-id="231777"
-                                        title="Добавить в избранное"></button>
+                                        <a href="{% url 'movie:add_to_favorite' movie.id %}" 
+                                        class="favorite {% if movie in request.user.profile.favorites.all %} is_favorited {% endif %}" data-movie-id="231473" title="
+                                        {% if movie in request.user.profile.favorites.all %}
+                                        Удалить из избранного
+                                        {% else %}
+                                        Добавить в избранное
+                                        {% endif %}"></a>
 
                                 </div>
 
@@ -34,8 +39,8 @@
                                         <div class="block">
                                             <span class="rt">
                                                 <span class="rating_site" title="Кинобейс &ndash; 7.7 (2574)"></span>
-                                                {{object.rating}} </span>
-                                            <span class="num">2 574</span>
+                                                {{object.get_avg_rating}} </span>
+                                            <span class="num">{{movie.rating_count}}</span>
                                         </div>
                                         <div class="block">
                                             <span class="rt">
@@ -51,13 +56,28 @@
                                             <span class="num">19 836</span>
                                         </div>
                                     </div>
+                                    <style> 
+                                        .rt-star{
+                                            color:rgb(163, 163, 162);
+                                            font: 1.5em sans-serif;
+                                            cursor: pointer;
+                                        }
+                                        .rt-star:hover{
+                                            color: orange;
+                                        }
+                                    </style>
+                                    <span class="rating_stars">
+                                        <a href="{% url 'movie:set_rating' 1 object.id %}" title="Оценить на 1" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 2 object.id %}" title="Оценить на 2" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 3 object.id %}" title="Оценить на 3" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 4 object.id %}" title="Оценить на 4" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 5 object.id %}" title="Оценить на 5" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 6 object.id %}" title="Оценить на 6" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 7 object.id %}" title="Оценить на 7" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 8 object.id %}" title="Оценить на 8" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 9 object.id %}" title="Оценить на 9" class="rt-star">★</a>
+                                        <a href="{% url 'movie:set_rating' 10 object.id %}" title="Оценить на 10" class="rt-star">★</a>
 
-                                    <span itemprop="aggregateRating" itemscope
-                                        itemtype="https://schema.org/AggregateRating">
-                                        <meta itemprop="ratingValue" content="7.7">
-                                        <meta itemprop="worstRating" content="0">
-                                        <meta itemprop="bestRating" content="10">
-                                        <meta itemprop="ratingCount" content="2574">
                                     </span>
 
                                     <input type="hidden" id="rating" value="7.7">
@@ -95,99 +115,75 @@
 
                                     <div class="info_item">
                                         <div class="key">Страна</div>
-                                        <div class="value"><a href="/films/usa" rel="nofollow">{{object.country.name}}</a></div>
+                                        <div class="value">
+                                            {% for country in object.country %}
+                                            <a href="#" rel="nofollow">{{ country.name }}</a>
+                                            {% endfor %}
+                                        </div>
                                     </div>
 
                                     <div class="info_item">
                                         <div class="key">Жанр</div>
-                                        <div class="value"><a href="/films/comedy" rel="nofollow"><span
-                                                    itemprop="genre">Комедия<span></a>, <a href="/films/crime"
-                                                rel="nofollow"><span itemprop="genre">Криминал<span></a>, <a
-                                                href="/animation" rel="nofollow"><span
-                                                    itemprop="genre">Мультфильм<span></a>, <a href="/films/adventure"
-                                                rel="nofollow"><span itemprop="genre">Приключения<span></a>, <a
-                                                href="/films/family" rel="nofollow"><span
-                                                    itemprop="genre">Семейный<span></a>, <a href="/films/sci-fi"
-                                                rel="nofollow"><span itemprop="genre">Фантастика<span></a></div>
-                                    </div>
-
-
-
-
-                                    <div class="info_item">
-                                        <div class="key">Режиссер</div>
-                                        <div class="value"><span itemprop="director" itemscope
-                                                itemtype="https://schema.org/Person"><a itemprop="url" href="/name/3418"
-                                                    rel="nofollow"><span itemprop="name">Крис Рено</span></a></span>,
-                                            <span itemprop="director" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/511798" rel="nofollow"><span
-                                                        itemprop="name">Патрик Делаж</span></a></span></div>
-                                    </div>
-
-                                    <div class="info_item hide">
-                                        <div class="key">Сценарий</div>
-                                        <div class="value"><a href="/name/10018" rel="nofollow">Майк Уайт</a>, <a
-                                                href="/name/3417" rel="nofollow">Кен Даурио</a></div>
-                                    </div>
-
-                                    <div class="info_item hide">
-                                        <div class="key">Продюсер</div>
-                                        <div class="value"><span itemprop="producer" itemscope
-                                                itemtype="https://schema.org/Person"><a itemprop="url"
-                                                    href="/name/393292" rel="nofollow"><span itemprop="name">Жан-Люк
-                                                        Флоринда</span></a></span>, <span itemprop="producer" itemscope
-                                                itemtype="https://schema.org/Person"><a itemprop="url" href="/name/7747"
-                                                    rel="nofollow"><span itemprop="name">Бретт
-                                                        Хоффман</span></a></span>, <span itemprop="producer" itemscope
-                                                itemtype="https://schema.org/Person"><a itemprop="url" href="/name/3419"
-                                                    rel="nofollow"><span itemprop="name">Кристофер
-                                                        Меледандри</span></a></span></div>
-                                    </div>
-
-
-                                    <div class="info_item hide">
-                                        <div class="key">Композитор</div>
-                                        <div class="value"><span itemprop="musicBy" itemscope
-                                                itemtype="https://schema.org/Person"><a itemprop="url" href="/name/3425"
-                                                    rel="nofollow"><span itemprop="name">Эйтор Перейра</span></a></span>
+                                        <div class="value">
+                                            {% for genre in object.genre.all %}
+                                            <a href="#" rel="nofollow">
+                                                <span itemprop="genre">{{genre.name}}<span>
+                                            </a>,
+                                            {% endfor %}
                                         </div>
                                     </div>
 
-
+                                    <div class="info_item">
+                                        <div class="key">Режиссер</div>
+                                        {% for role in object.roles.all %}
+                                            <div class="value">
+                                                {% if role.director %} 
+                                                {% for author in role.author.all %}
+                                                <span>
+                                                    <a href="#" rel="nofollow">
+                                                        <span>{{author.name}}</span>
+                                                    </a>
+                                                </span>
+                                                {% endfor %} 
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+        
+                                    <div class="info_item">
+                                        <div class="key">Продюсер</div>
+                                        {% for role in object.roles.all %}
+                                            <div class="value">
+                                                {% if role.producer %} 
+                                                {% for author in role.author.all %}
+                                                <span>
+                                                    <a href="#" rel="nofollow">
+                                                        <span>{{author.name}}</span>
+                                                    </a>
+                                                </span>
+                                                {% endfor %} 
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+        
                                     <div class="info_item">
                                         <div class="key">Актеры</div>
-                                        <div class="value"><span itemprop="actor" itemscope
-                                                itemtype="https://schema.org/Person"><a itemprop="url" href="/name/718"
-                                                    rel="nofollow"><span itemprop="name">Стив Карелл</span></a></span>,
-                                            <span itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/18709" rel="nofollow"><span
-                                                        itemprop="name">Пьер Коффан</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/1263" rel="nofollow"><span
-                                                        itemprop="name">Уилл Феррелл</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/301" rel="nofollow"><span
-                                                        itemprop="name">София Вергара</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/3418" rel="nofollow"><span
-                                                        itemprop="name">Крис Рено</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/3416" rel="nofollow"><span
-                                                        itemprop="name">Дэна Гайер</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/511796" rel="nofollow"><span
-                                                        itemprop="name">Мэдисон Скай Полан</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/3420" rel="nofollow"><span
-                                                        itemprop="name">Миранда Косгров</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/2500" rel="nofollow"><span
-                                                        itemprop="name">Кристен Уиг</span></a></span>, <span
-                                                itemprop="actor" itemscope itemtype="https://schema.org/Person"><a
-                                                    itemprop="url" href="/name/1375" rel="nofollow"><span
-                                                        itemprop="name">Стив Куган</span></a></span></div>
+                                        <div class="value">
+                                                {% for role in object.roles.all %}
+                                                {% if role.actor %} 
+                                                {% for author in role.author.all %}
+                                                <span>
+                                                    <a href="#" rel="nofollow">
+                                                        <span> {{ author.name }}, </span>
+                                                    </a>
+                                                </span>
+                                                {% endfor %} 
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
                                     </div>
-
+                                    
                                     <div class="info_item">
                                         <div class="key">Качество</div>
                                         <div class="value">{{object.quality|upper}}</div>
@@ -212,107 +208,28 @@
                                 <div id="related">
                                     <h3>Сиквелы и приквелы</h3>
                                     <ul class="items">
+                                        {% for movie in movie.related_films.all %}
                                         <li class="item">
-                                            <div class="poster"><a href="/film/170715-gadkij-ya"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2018/12/f9255e969ec99d4915a1.jpg"
-                                                        class="img-responsive" loading="lazy" alt="Гадкий я (2010)"
-                                                        title="Гадкий я (2010)" width="242" height="358"></a><button
-                                                    class="favorite" data-movie-id="170715"
-                                                    title="Добавить в избранное"></button>
-                                                <div class="label">Лицензия</div>
-                                            </div>
-                                            <div class="title"><a href="/film/170715-gadkij-ya" alt="Гадкий я (2010)"
-                                                    title="Гадкий я (2010)">Гадкий я</a></div>
-                                            <span class="rating">7.3</span><span class="year">2010</span>
+                                          <div class="poster">
+                                            <a href="{% url 'movie:movie_detail' movie.slug %}">
+                                              <img src="{{movie.cover.url}}" class="img-responsive" loading="lazy" alt="{{movie.title}}" title="{{movie.title}}" width="242" height="358" /></a>
+                                              <a href="{% url 'movie:add_to_favorite' movie.id %}" 
+                                              class="favorite {% if movie in request.user.profile.favorites.all %} is_favorited {% endif %}" data-movie-id="231473" title="
+                                              {% if movie in request.user.profile.favorites.all %}
+                                              Удалить из избранного
+                                              {% else %}
+                                              Добавить в избранное
+                                              {% endif %}"></a>
+                                          </div>
+                                          <div class="title">
+                                            <a href="film/231473-navodnenie.html" alt="{{movie.title}}" title="{{movie.title}}">
+                                              {{movie.title}}
+                                            </a>
+                                          </div>
+                                          <span class="rating">{{movie.rating}}</span>
+                                          <span class="year">{{movie.year}}, {{movie.quality|upper}}</span>
                                         </li>
-
-                                        <li class="item">
-                                            <div class="poster"><a href="/film/150681-gadkiy-ya-2"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2018/12/28483f53e4c0cd645fcb.jpg"
-                                                        class="img-responsive" loading="lazy" alt="Гадкий я 2 (2013)"
-                                                        title="Гадкий я 2 (2013)" width="242" height="358"></a><button
-                                                    class="favorite" data-movie-id="150681"
-                                                    title="Добавить в избранное"></button>
-                                                <div class="label">Лицензия</div>
-                                            </div>
-                                            <div class="title"><a href="/film/150681-gadkiy-ya-2"
-                                                    alt="Гадкий я 2 (2013)" title="Гадкий я 2 (2013)">Гадкий я 2</a>
-                                            </div>
-                                            <span class="rating">7.3</span><span class="year">2013</span>
-                                        </li>
-
-                                        <li class="item">
-                                            <div class="poster"><a href="/film/161114-minony"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2019/07/bcae294998f18e7688d8.jpg"
-                                                        class="img-responsive" loading="lazy" alt="Миньоны (2015)"
-                                                        title="Миньоны (2015)" width="242" height="358"></a><button
-                                                    class="favorite" data-movie-id="161114"
-                                                    title="Добавить в избранное"></button>
-                                                <div class="label">Лицензия</div>
-                                            </div>
-                                            <div class="title"><a href="/film/161114-minony" alt="Миньоны (2015)"
-                                                    title="Миньоны (2015)">Миньоны</a></div>
-                                            <span class="rating">7.2</span><span class="year">2015</span>
-                                        </li>
-
-                                        <li class="item">
-                                            <div class="poster"><a href="/film/216654-gadkij-ya-3"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2018/12/80bae7f01aa788dddb46.jpg"
-                                                        class="img-responsive" loading="lazy" alt="Гадкий я 3 (2017)"
-                                                        title="Гадкий я 3 (2017)" width="242" height="358"></a><button
-                                                    class="favorite" data-movie-id="216654"
-                                                    title="Добавить в избранное"></button>
-                                                <div class="label">Лицензия</div>
-                                            </div>
-                                            <div class="title"><a href="/film/216654-gadkij-ya-3"
-                                                    alt="Гадкий я 3 (2017)" title="Гадкий я 3 (2017)">Гадкий я 3</a>
-                                            </div>
-                                            <span class="rating">7.3</span><span class="year">2017</span>
-                                        </li>
-
-                                        <li class="item">
-                                            <div class="poster"><a href="/film/215890-minony-skauty"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2024/03/3fb3759ca262a2765548.jpg"
-                                                        class="img-responsive" loading="lazy"
-                                                        alt="Миньоны-скауты (2019)" title="Миньоны-скауты (2019)"
-                                                        width="242" height="358"></a><button class="favorite"
-                                                    data-movie-id="215890" title="Добавить в избранное"></button>
-                                                <div class="label">Лицензия</div>
-                                            </div>
-                                            <div class="title"><a href="/film/215890-minony-skauty"
-                                                    alt="Миньоны-скауты (2019)"
-                                                    title="Миньоны-скауты (2019)">Миньоны-скауты</a></div>
-                                            <span class="rating">7.7</span><span class="year">2019</span>
-                                        </li>
-
-                                        <li class="item">
-                                            <div class="poster"><a href="/film/194911-minony-gryuvitatsiya"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2022/07/21303481b7fa409f9e58.jpg"
-                                                        class="img-responsive" loading="lazy"
-                                                        alt="Миньоны: Грювитация (2022)"
-                                                        title="Миньоны: Грювитация (2022)" width="242"
-                                                        height="358"></a><button class="favorite" data-movie-id="194911"
-                                                    title="Добавить в избранное"></button>
-                                                <div class="label">Лицензия</div>
-                                            </div>
-                                            <div class="title"><a href="/film/194911-minony-gryuvitatsiya"
-                                                    alt="Миньоны: Грювитация (2022)"
-                                                    title="Миньоны: Грювитация (2022)">Миньоны: Грювитация</a></div>
-                                            <span class="rating">7</span><span class="year">2022</span>
-                                        </li>
-
-                                        <li class="item current">
-                                            <div class="poster"><a href="/film/231777-gadkiy-ya-4"><img
-                                                        src="https://st.kinobase.org/storage/242x358/posters/2024/03/33dca1b79ef2cdf6b5f0.jpg"
-                                                        class="img-responsive" loading="lazy" alt="Гадкий я 4 (2024)"
-                                                        title="Гадкий я 4 (2024)" width="242" height="358"></a><button
-                                                    class="favorite" data-movie-id="231777"
-                                                    title="Добавить в избранное"></button></div>
-                                            <div class="title"><a href="/film/231777-gadkiy-ya-4"
-                                                    alt="Гадкий я 4 (2024)" title="Гадкий я 4 (2024)">Гадкий я 4</a>
-                                            </div>
-                                            <span class="rating">7.7</span><span class="year">2024</span>
-                                        </li>
+                                      {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -321,14 +238,15 @@
                         <div id="watch">
                             <ul class="nav-tabs" id="tab-options">
                                 <li><a rel="nofollow" href="#online" data-toggle="tab">СМОТРЕТЬ</a></li>
-                                <li><a rel="nofollow" href="#trailer" data-toggle="tab">ТРЕЙЛЕР</a></li>
                             </ul>
 
                             <div class="tab-content">
                                 <div class="tab-pane" id="online">
-                                    <div id="videoplayer"></div>
-                                </div>
-                                <div class="tab-pane" id="trailer">
+                                    <div id="player"></div>
+
+                                    <script>
+                                    const player = new Playerjs({id:"player", file:"{{object.file.url}}"});
+                                    </script>
                                 </div>
                             </div>
 
@@ -345,31 +263,44 @@
 
 
                         <div id="comments">
-                            <h3>17 комментариев</h3>
+                            <h3>{{comments.count}} комментариев</h3>
 
-                            <form action="/comments/add" id="comment_form" method="post">
-                                <textarea class="input" id="comment" rows="2" placeholder="Ваш комментарий"></textarea>
+                            <form action="" id="comment_form" method="post">
+                                {% csrf_token %}
+                                <textarea class="input" minlength="3" name="comment" id="comment" rows="2" placeholder="Ваш комментарий"></textarea>
                                 <button id="add_comment" class="btn" title="Добавить комментарий">Добавить</button>
                             </form>
 
                             <div id="comments_entries">
-                                <div class="comment new_comment" data-comment-id="" style="display:none;">
+                                {% for comment in comments %}
+                                <div class="comment new_comment" data-comment-id="">
                                     <div class="comment_avatar">
-                                        <img class="img_circle" src="" alt="">
+                                        {% if comment.user.profile.image %}
+                                            <img class="img_circle" src="{{comment.user.profile.image.url}}" alt="">
+                                        {% else %}
+                                            <img class="img_circle" src="https://st.kinobase.org/static/images/avatar.svg" alt="">
+                                        {% endif %}
                                     </div>
                                     <div class="comment_body">
-                                        <div class="comment_head"><span class="username"></span><span
-                                                class="comment_date"></span></div>
-                                        <p></p>
+                                        <div class="comment_head">
+                                            <span class="username">{{comment.user.username}}</span>
+                                            <span class="comment_date">{{comment.created_at}}</span>
+                                        </div>
+                                        <p>{{comment.text}}</p>
                                         <ul class="list-inline">
                                             <li class="showfull"><a rel="nofollow" href="javascript:void(0);"
                                                     class="muted" title="Показать весь комментарий">Показать весь
                                                     комментарий</a></li>
-                                            <li class="remove"><a rel="nofollow" href="javascript:void(0);"
-                                                    class="muted" title="Удалить">Удалить</a></li>
+                                            {% if request.user.is_superuser %}
+                                            <li class="remove">
+                                                <a  href="{% url 'movie:comment_delete' comment.id %}"
+                                                    class="muted" title="Удалить">Удалить</a>
+                                            </li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                 </div>
+                                {% endfor %}
                             </div>
 
                         </div>
