@@ -5,8 +5,8 @@ from django.contrib import messages
 from django.views.generic import ListView,DetailView
 from django.views.generic.edit import DeleteView
 from django.views import View
+from .models import Movie,Comment,Rating,Category, Genre
 # Create your views here.
-from .models import Movie,Comment,Rating,Category
 
 class MovieListView(ListView):
     model = Movie
@@ -14,13 +14,41 @@ class MovieListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['category'] = Category.objects.all()
+        context['geners'] = Genre.objects.all()
         return context
 
 
 def category(request,slug):
     movies = Movie.objects.filter(category__slug=slug)
     category = Category.objects.all()
-    return render(request,'index.html' ,{'object_list':movies,'category':category})
+    one_category = Category.objects.get(slug = slug)
+    geners = Genre.objects.all()
+    context = {
+                'object_list':movies,
+               'category':category, 
+               "one_category":one_category,
+               "genres":geners
+        }
+    return render(request,'index.html', context)
+
+
+def genre_filter(request):
+    selected_options = request.GET.getlist('options')
+    category = Category.objects.all()
+    movies = []
+    for i in selected_options:
+        genre = Genre.objects.get(slug = i)
+        mouvi = genre.mouvies.all()
+        for i in mouvi:
+            movies.append(i)
+    geners = Genre.objects.all()
+    context = {
+                'object_list':movies,
+               'category':category,
+               "genres":geners
+               }
+
+    return render(request,'index.html', context)
 
 
 def search(request):
@@ -43,6 +71,7 @@ class MovieDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         comments = Comment.objects.filter(movie=self.object)
         context['comments'] = comments
+        context['rating'] = Rating.objects.filter(movie=self.object)
         return context
 
     def post(self, request, *args, **kwargs):

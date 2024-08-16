@@ -39,7 +39,7 @@
                                         <div class="block">
                                             <span class="rt">
                                                 <span class="rating_site" title="Кинобейс &ndash; 7.7 (2574)"></span>
-                                                {{object.get_avg_rating}} </span>
+                                                {{object.get_avg_rating|floatformat }} </span>
                                             <span class="num">{{movie.rating_count}}</span>
                                         </div>
                                         <div class="block">
@@ -67,6 +67,7 @@
                                         }
                                     </style>
                                     <span class="rating_stars">
+                                        {% if not rating.value %}
                                         <a href="{% url 'movie:set_rating' 1 object.id %}" title="Оценить на 1" class="rt-star">★</a>
                                         <a href="{% url 'movie:set_rating' 2 object.id %}" title="Оценить на 2" class="rt-star">★</a>
                                         <a href="{% url 'movie:set_rating' 3 object.id %}" title="Оценить на 3" class="rt-star">★</a>
@@ -77,7 +78,9 @@
                                         <a href="{% url 'movie:set_rating' 8 object.id %}" title="Оценить на 8" class="rt-star">★</a>
                                         <a href="{% url 'movie:set_rating' 9 object.id %}" title="Оценить на 9" class="rt-star">★</a>
                                         <a href="{% url 'movie:set_rating' 10 object.id %}" title="Оценить на 10" class="rt-star">★</a>
-
+                                        {% else %}
+                                        <a href="{% url 'movie:set_rating' rating.value object.id %}" title="Удалить оценку" class="rt-star">★</a>
+                                        {% endif %}
                                     </span>
 
                                     <input type="hidden" id="rating" value="7.7">

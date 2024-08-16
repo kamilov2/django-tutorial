@@ -9,12 +9,12 @@
         
             {% for liked in favourites  %}
                     <li class="item">
-                <a href="collection/9-rekomenduemye-k-prosmotru.html">
+                <a href="{% url 'movie:movie_detail' liked.slug %}">
                     <img src="{{liked.cover.url}}" loading="lazy" alt="Рекомендуемые к просмотру" width="360" height="180" title="Рекомендуемые к просмотру">
                 </a>
 
                 <div class="title">
-                    <a href="collection/9-rekomenduemye-k-prosmotru.html" alt="Рекомендуемые к просмотру" title="Рекомендуемые к просмотру">{{liked.title}}</a>
+                    <a href="{% url 'movie:movie_detail' liked.slug %}" alt="Рекомендуемые к просмотру" title="Рекомендуемые к просмотру">{{liked.title}}</a>
                 </div>
             </li>
             {% endfor %}

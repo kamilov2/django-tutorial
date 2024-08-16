@@ -25,7 +25,7 @@ class Movie(models.Model):
     origin_title = models.CharField(max_length=250, blank=True)
     cover = models.ImageField(upload_to="movie/covers/", blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="movies")
-    genre = models.ManyToManyField(Genre)
+    genre = models.ManyToManyField(Genre, related_name="mouvies")
     country = CountryField(multiple=True,blank=True)
     description = models.TextField(blank=True)
     year = models.PositiveSmallIntegerField(default=0)

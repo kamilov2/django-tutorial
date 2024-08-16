@@ -11,5 +11,6 @@ urlpatterns = [
     path("movie/add/favorite/<int:movie_id>", views.add_favorite, name="add_to_favorite"),
     path("movie/add/favorites/", views.favourites_page, name="favourites_page"),
     path("category/<slug:slug>", views.category, name="category"),
+    path("genre_filter/", views.genre_filter, name="filter_genre"),
     path("search/", views.search, name="search"),
 ]
