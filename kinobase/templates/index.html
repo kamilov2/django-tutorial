@@ -54,26 +54,17 @@
                                 </a>
                               </li>
                             </ul>
-              
+                        <form action="{% url 'movie:filter_genre' %}" method="get" id="search_form">
                           <div id="filter_genres" class="hide">
                               <ul>
                                   <li><a href="#" class="title-options" onclick="dropdown_filter('genres', false);return false;"><span class="prev"></span> Жанр</a></li>
                                   <li role="separator" class="divider"></li>
                               </ul>
-                              <form action="{% url 'movie:filter_genre' %}" method="get" id="search_form">
-                                  <ul id="genres" class="options" style="padding: 10px;">
+                             
+                              <ul id="genres" class="options" style="padding: 10px;">
                                   {% for i in genres %}
-                                    <li><input type="checkbox" name="options" value="{{ i.slug }}"><span style="margin-left: 5px;">{{ i.name }}</span></li>
-                                  {% endfor %}
-                                  <div class="buttons">
-                                    <center>
-                                        <button class="btn" id="clear_filters">Сбросить</button>
-                                        <button class="btn" id="submit_filters">Применить</button>
-                                    </center>
-                                </div>
-                                </form>
-                                {% comment %} <li><a href="{% url 'movie:filter_genre' i.slug %}">{{ i.name }}</a></li> {% endcomment %}
-                                
+                                    <li><input type="checkbox" name="genre[]" value="{{ i.slug }}"><span style="margin-left: 5px;">{{ i.name }}</span></li>
+                                  {% endfor %}                                
                               </ul>
                           </div>
               
@@ -82,7 +73,13 @@
                                   <li><a href="#" class="title-options" onclick="dropdown_filter('countries', false);return false;"><span class="prev"></span> Страна</a></li>
                                   <li role="separator" class="divider"></li>
                               </ul>
-                              <ul id="countries" class="options"></ul>
+                           
+                              <ul id="countries" class="options">
+                                {% for i in countries %}
+                                <li style="padding: 5px ;"><input type="checkbox" name="country[]" value="{{ i }}"><span style="margin-left: 5px;">{{ i.name }}</span></li>
+                                {% endfor %}
+                              </ul>
+                              
                           </div>
               
                           <div id="filter_years" class="hide">
@@ -90,26 +87,34 @@
                                   <li><a href="#" class="title-options" onclick="dropdown_filter('years', false);return false;"><span class="prev"></span> Год</a></li>
                                   <li role="separator" class="divider"></li>
                               </ul>
-                              <ul id="years" class="options"></ul>
+                              <ul id="years" class="options">
+                                {% for i in years %}
+                                <li style="padding: 5px ;"><input type="checkbox" name="years[]" value="{{ i }}"><span style="margin-left: 5px;">{{ i }}</span></li>
+                                {% endfor %}
+                              </ul>
                           </div>
               
-                                      <div id="filter_video" class="hide">
+                          <div id="filter_video" class="hide">
                               <ul>
                                   <li><a href="#" class="title-options" onclick="dropdown_filter('video', false);return false;"><span class="prev"></span> Качество</a></li>
                                   <li role="separator" class="divider"></li>
                               </ul>
-                              <ul id="video" class="options"></ul>
-                          </div>
-              
-                          <div id="filter_audio" class="hide">
-                              <ul>
-                                  <li><a href="#" class="title-options" onclick="dropdown_filter('audio', false);return false;"><span class="prev"></span> Перевод</a></li>
-                                  <li role="separator" class="divider"></li>
+                              <ul id="video" class="options">
+                                {% for i in quality %}
+                                <li style="padding: 5px ;"><input type="checkbox" name="quality[]" value="{{ i }}"><span style="margin-left: 5px;">{{ i }}</span></li>
+                                {% endfor %}
                               </ul>
-                              <ul id="audio" class="options"></ul>
                           </div>
-                      </div>
               
+                          <div class="buttons">
+                            <center>
+                                <button class="btn" id="clear_filters">Сбросить</button>
+                                <button class="btn" id="submit_filters">Применить</button>
+                            </center>
+                        </div>
+                      </form>
+                      </div>
+                      
                   </div>
               
                   <div class="dropdown">

@@ -33,21 +33,42 @@ def category(request,slug):
 
 
 def genre_filter(request):
-    selected_options = request.GET.getlist('options')
+    genres_selected = request.GET.getlist('genres[]')
+    countries_selected = request.GET.getlist('countries[]')
+    years_selected = request.GET.getlist('years[]')
+    quality_selected = request.GET.getlist('quality[]')
+    movies = Movie.objects.all()
     category = Category.objects.all()
-    movies = []
-    for i in selected_options:
-        genre = Genre.objects.get(slug = i)
-        mouvi = genre.mouvies.all()
-        for i in mouvi:
-            movies.append(i)
+    movie_context = []
+    movie_context_ = []
+    if genres_selected:
+        movie = movies.filter(genres__slug__in=genres_selected).all()
+        movie_context.append([i for i in movie])
+        
+    if countries_selected:
+        movie = movies.filter(country__name__in=countries_selected).all()
+        movie_context.append([i for i in movie])
+        
+    if years_selected:
+        movie = movies.filter(year__in=years_selected).all()
+        movie_context.append([i for i in movie])
+    if quality_selected:
+        movie = movies.filter(quality__in=quality_selected).all()
+        movie_context.append([i for i in movie])
+        
+    for i in movie_context:
+        for j in i:
+            if j not in movie_context_:
+                 movie_context_.append(j)
+            
+    
     geners = Genre.objects.all()
     context = {
-                'object_list':movies,
+               'object_list':movie_context_,
                'category':category,
                "genres":geners
                }
-
+    print(movie_context_)
     return render(request,'index.html', context)
 
 
