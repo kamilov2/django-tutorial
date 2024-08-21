@@ -6,7 +6,10 @@ from django.views.generic import ListView,DetailView
 from django.views.generic.edit import DeleteView
 from django.views import View
 from .models import Movie,Comment,Rating,Category, Genre
-# Create your views here.
+from django.utils import timezone
+from django.db.models import Count
+from datetime import timedelta
+from django.db.models import Q
 
 class MovieListView(ListView):
     model = Movie
@@ -83,6 +86,57 @@ def search(request):
     context = {'object_list':movies,'category':category}
     return render(request,'index.html', context)
 
+
+def movie_sort(request,key):
+    today = timezone.now().date()
+    yesterday = today - timedelta(days=1)
+    movies = Movie.objects.all()
+    category = Category.objects.all()
+    context = {'object_list':movies,'category':category}
+    
+    if key == "year":
+        movies = Movie.objects.order_by('-year')
+        context = {'object_list':movies,'category':category}
+        
+    if key == "for_day":
+        popular_movies = Movie.objects.annotate(
+        num_comments=Count('comments', filter= Q(comments__created_at__date=today))
+        ).filter(num_comments__gt=0).order_by('-num_comments')
+        context = {'object_list':popular_movies,'category':category}
+        
+    if key == "for_week":
+        one_week_before = today - timedelta(days=7)
+        popular_movies = Movie.objects.annotate(
+            num_comments=Count('comments', filter= Q(comments__created_at__date__lte=today,comments__created_at__date__gte = one_week_before))
+        ).filter(num_comments__gt=0).order_by('-num_comments')
+        context = {'object_list':popular_movies,'category':category}
+        
+    if key == "for_month":
+        one_month_before = today - timedelta(days=31)
+        popular_movies = Movie.objects.annotate(
+            num_comments=Count('comments', filter= Q(comments__created_at__date__lte=today,comments__created_at__date__gte = one_month_before))
+        ).filter(num_comments__gt=0).order_by('-num_comments')
+        context = {'object_list':popular_movies,'category':category}
+        
+    if key == "for_all_time":
+        popular_movies = Movie.objects.annotate(
+            num_comments=Count('comments', filter= Q(comments__created_at__date__lte=today))
+        ).filter(num_comments__gt=0).order_by('-num_comments')
+        context = {'object_list':popular_movies,'category':category}
+    
+    if key == "for_user":
+        popular_movies = Movie.objects.all().order_by('-rating_count')
+        context = {'object_list':popular_movies,'category':category}
+        
+    if key == "for_kinobase":
+        popular_movies = Movie.objects.all().order_by('-kp_rating')
+        context = {'object_list':popular_movies,'category':category}
+    
+    if key == "for_imdb":
+        popular_movies = Movie.objects.all().order_by('-imdb_rating')
+        context = {'object_list':popular_movies,'category':category}
+    
+    return render(request,'index.html', context)
 
 class MovieDetailView(DetailView):
     model = Movie

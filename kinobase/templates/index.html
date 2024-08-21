@@ -7,7 +7,7 @@
         <ul class="items">
 
       
-          {% if "category" in request.path or "genre_filter" in request.path %}         
+          {% if "category" in request.path or "genre_filter" in request.path or "sort" in request.path  %}         
             <div id="filters_row" style="display: flex;justify-content: space-between;">
               <div class="left">
                   <h1>{{ one_category.name }}</h1>
@@ -40,19 +40,11 @@
                               <li>
                                 <a href="#" onclick="dropdown_filter('years', true);return false;">
                                   <span class="left">Год</span> 
-                                  <span class="right">\
+                                  <span class="right">
                                     <span class="next"></span></span>
                                   </a>
                                 </li>
                                               <li><a href="#" onclick="dropdown_filter('video', true);return false;"><span class="left">Качество</span> <span class="right"><span class="next"></span></span></a></li>
-                              <li>
-                                <a href="#" onclick="dropdown_filter('audio', true);return false;">
-                                  <span class="left">Перевод</span> 
-                                  <span class="right">
-                                    <span class="next"></span>
-                                  </span>
-                                </a>
-                              </li>
                             </ul>
                         <form action="{% url 'movie:filter_genre' %}" method="get" id="search_form">
                           <div id="filter_genres" class="hide">
@@ -123,15 +115,15 @@
                               </a>
               
                       <ul class="dropdown-menu dropdown-menu-right">
-                          <li class="active"><a href="films.html" rel="nofollow">Новинки</a></li>
-                          <li><a href="films5f91.html?sort=year" rel="nofollow">Год</a></li>
-                          <li><a href="films67ec.html?sort=viewed_day" rel="nofollow">Популярные за сутки</a></li>
-                          <li><a href="filmsa692.html?sort=viewed_week" rel="nofollow">Популярные за неделю</a></li>
-                          <li><a href="films9066.html?sort=viewed_month" rel="nofollow">Популярные за месяц</a></li>
-                          <li><a href="filmse6e7.html?sort=viewed_all" rel="nofollow">Популярные за все время</a></li>
-                          <li><a href="films8b48.html?sort=rating" rel="nofollow">Рейтинг пользователей</a></li>
-                                      <li><a href="films7f52.html?sort=kp_rating" rel="nofollow">Рейтинг Кинопоиск</a></li>
-                          <li><a href="films7e06.html?sort=imdb_rating" rel="nofollow">Рейтинг IMDb</a></li>
+                          <li class="active"><a href="{% url 'movie:sort' "new" %}" rel="nofollow">Новинки</a></li>
+                          <li><a href="{% url 'movie:sort' "year" %}" rel="nofollow">Год</a></li>
+                          <li><a href="{% url 'movie:sort' "for_day" %}" rel="nofollow">Популярные за сутки</a></li>
+                          <li><a href="{% url 'movie:sort' "for_week" %}" rel="nofollow">Популярные за неделю</a></li>
+                          <li><a href="{% url 'movie:sort' "for_month" %}" rel="nofollow">Популярные за месяц</a></li>
+                          <li><a href="{% url 'movie:sort' "for_all_time" %}" rel="nofollow">Популярные за все время</a></li>
+                          <li><a href="{% url 'movie:sort' "for_user" %}" rel="nofollow">Рейтинг пользователей</a></li>
+                                      <li><a href="{% url 'movie:sort' "for_kinobase" %}" rel="nofollow">Рейтинг Кинопоиск</a></li>
+                          <li><a href="{% url 'movie:sort' "for_imdb" %}" rel="nofollow">Рейтинг IMDb</a></li>
                                   </ul>
                   </div>
               </div>
